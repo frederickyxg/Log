@@ -1,1 +1,174 @@
-site_name: My Docs
+#站点信息
+site_name: Frederick's Logs
+site_author: Frederick_Yxg
+site_url: https://frederickyxg.github.io/FrederickLOG.github.io/
+site_description: Lazy
+repo_url: https://frederickyxg.github.io/Log/
+#导航树设置
+nav:
+  - HOME: "index.md"
+  - NBU-NOTES: 
+    - "NBU-NOTES/index.md"
+    - "NBU-NOTES/信号与系统/signal and system.md"
+    - "NBU-NOTES/单片机/MCU.md"
+
+  - Tools:
+    - markdown:
+      - "tools_for_mylog/markdown/index.md"
+      - "tools_for_mylog/markdown/Markdown Learning.md"
+      - "tools_for_mylog/markdown/quick search for md.md"
+    - mkdocs:
+      - "tools_for_mylog/mkdocs/official doc.md"
+  - Life Learning:
+    - Dive into Deep Learning:
+      - "Life Learning/Dive into Deep Learning/Dive into Deeplearning.md"
+  - FreeWriting:
+    - 团建:
+      - "freewriting/团建/团建小游戏.md"
+
+
+
+# 更加强大的markdown支持 by pymdownx
+markdown_extensions:
+  - abbr
+  # ...some extensions
+  # - pymdownx.pathconverter:
+  #     base_path: '' # default: ''
+  #     relative_path: '' # default ''
+  #     absolute: false # default: false
+  #     tags: 'a script img link object embed'
+
+  - toc:
+      permalink: True
+      toc_depth: 4
+      title: Content
+  - pymdownx.arithmatex: # 渲染块和内联块方程
+      generic: true
+  - pymdownx.critic:
+      mode: view
+      # mode: accept
+      # mode: reject
+  - pymdownx.emoji: #慎用，不然开飞机
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+   
+  - pymdownx.tasklist: #可以打钩的任务列表
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.betterem #加强对特殊字符的识别
+  - pymdownx.blocks.caption #向任何markdown块添加标题
+  - pymdownx.critic #下划线、高光等
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+
+
+
+extra_javascript:
+  - extra_javascripts/mathjax.js # 公式输入支持
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - extra_javascript/hide_right_bar.js
+
+# 主题配置
+theme:
+  name: material
+  # 网站图标
+  favicon: img/icons/favicon.ico
+  # 站点语言
+  language: zh
+  # 配置覆盖
+  custom_dir: docs/overrides
+  # 颜色设置
+  palette:
+    # 跟随系统
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      toggle:
+        icon: material/brightness-1
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-3
+        name: Switch to light mode
+  # 字体
+  font:
+    text: Roboto
+    code: Roboto Mono
+  # 图标设置
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+      previous: fontawesome/solid/angle-left
+      next: fontawesome/solid/angle-right
+
+# 一些功能
+  features:
+    - search.highlight # 搜索结果高亮
+    - search.suggest # 搜索建议
+    - toc.follow # 目录跟随
+    - search.share # 搜索分享
+
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.path # 带导航路径
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+
+
+
+
+
+# 插件配置
+  plugins:
+     - with-pdf
+     - search:
+        separator: '[\s\-\.]+'
+        lang:
+          -en
+          -zh
+     - statistics:
+        page_template: "page_template/page_statistics.html"
+        words_per_minute: 180
+        #page_check_metadata: comment
+  extra:
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/frederickyxg/Log
+
+
