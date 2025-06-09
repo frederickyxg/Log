@@ -596,8 +596,6 @@ $$
 #### <font color = red size = 4># 欠采样的效果:混叠现象</font>
 
 
-hellohello
-
 
     
 
