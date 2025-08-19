@@ -9,7 +9,10 @@ nav:
   - HOME: "index.md"
   - NBU-NOTES: 
     - "NBU-NOTES/index.md"
-    - "NBU-NOTES/信号与系统/signal and system.md"
+    - "NBU-NOTES/模拟电子技术/index.md"
+    - "NBU-NOTES/数字电子技术/index.md"
+    - "NBU-NOTES/通信电子线路/index.md"
+    - "NBU-NOTES/信号与系统/信号与系统.md"
     - "NBU-NOTES/单片机/MCU.md"
 
   - Tools:
