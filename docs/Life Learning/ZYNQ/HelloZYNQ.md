@@ -1,4 +1,4 @@
-# <font color = blue>第一章 Vitis Soc 开发入门</font>
+# <font color = blue>第二章 Vitis Soc 开发入门</font>
 
 ## <font color = red>1.1 Hello ZYNQ</font>
 

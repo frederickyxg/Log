@@ -28,7 +28,10 @@ nav:
       - "Life Learning/Dive into Deep Learning/Dive into Deeplearning.md"
     - ZYNQ:
       - "Life Learning/ZYNQ/index.md"
+      - "Life Learning/ZYNQ/Basic FPGA.md"
+      - "Life Learning/ZYNQ/Basic ARM.md"
       - "Life Learning/ZYNQ/HelloZYNQ.md"
+
   - FreeWriting:
     - 团建:
       - "freewriting/团建/团建小游戏.md"
