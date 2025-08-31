@@ -14,6 +14,7 @@ nav:
     - "NBU-NOTES/通信电子线路/index.md"
     - "NBU-NOTES/信号与系统/信号与系统.md"
     - "NBU-NOTES/单片机/MCU.md"
+    - "NBU-NOTES/电磁场与电磁波/电磁场与电磁波.md"
 
   - Tools:
     - markdown:
@@ -25,6 +26,9 @@ nav:
   - Life Learning:
     - Dive into Deep Learning:
       - "Life Learning/Dive into Deep Learning/Dive into Deeplearning.md"
+    - ZYNQ:
+      - "Life Learning/ZYNQ/index.md"
+      - "Life Learning/ZYNQ/HelloZYNQ.md"
   - FreeWriting:
     - 团建:
       - "freewriting/团建/团建小游戏.md"
