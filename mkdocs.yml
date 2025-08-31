@@ -28,9 +28,18 @@ nav:
       - "Life Learning/Dive into Deep Learning/Dive into Deeplearning.md"
     - ZYNQ:
       - "Life Learning/ZYNQ/index.md"
-      - "Life Learning/ZYNQ/Basic FPGA.md"
-      - "Life Learning/ZYNQ/Basic ARM.md"
-      - "Life Learning/ZYNQ/HelloZYNQ.md"
+      - Verilog:
+        - "Life Learning/ZYNQ/Verilog/index.md"
+        - "Life Learning/ZYNQ/Verilog/第一章 Verilog简介.md"
+        - "Life Learning/ZYNQ/Verilog/第二章 Verilog基本语法.md"
+        - "Life Learning/ZYNQ/Verilog/第三章 Verilog进阶语法.md"
+        - "Life Learning/ZYNQ/Verilog/第四章 Verilog过程与语句块.md"
+        - "Life Learning/ZYNQ/Verilog/第五章 Verilog模块与函数.md"
+        - "Life Learning/ZYNQ/Verilog/第六章 Verilog DEMO设计.md"
+      - Arm:
+        - "Life Learning/ZYNQ/Arm/ARM.md"
+      - ZYNQ:
+        - "Life Learning/ZYNQ/ZYNQ/HelloZYNQ.md" 
 
   - FreeWriting:
     - 团建:
