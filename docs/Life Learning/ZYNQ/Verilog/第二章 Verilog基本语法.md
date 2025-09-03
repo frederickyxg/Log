@@ -103,7 +103,8 @@ assign interrupt_line = irq2 ? 1'b1 : 1'bz;
 // 任意一个中断请求有效，interrupt_line 即为 1
 ```
 
-> 后面的两个线网类型可以用于让一个标识符可以同时被多个激励驱动，但事实上使用的频率会少一点。
+!!! note
+	后面的两个线网类型可以用于让一个标识符可以同时被多个激励驱动，但事实上使用的频率会少一点。
 
 ### 二、寄存器(reg type)类型
 
@@ -203,7 +204,8 @@ always@* begin
 end
 ```
 
-​	此例中，integer 信号 j 作为辅助信号，将 data1 的数据依次赋值给数组 byte1。综合后**实际电路里并没有 j 这个信号**，j 只是辅助生成相应的硬件电路。
+???+ note
+	此例中，integer 信号 j 作为辅助信号，将 data1 的数据依次赋值给数组 byte1。综合后**实际电路里并没有 j 这个信号**，j 只是辅助生成相应的硬件电路。
 
 **实数**
 
@@ -302,7 +304,284 @@ end
 
 ## <font color = red>2.3 Verilog表达式</font>
 
-### 一、表达式与操作数
+### 一、操作数、操作符与表达式
+
+**操作数**
+
+​	操作数可以是任意的数据类型，只是有些特定的语法结构要求使用特定类型的操作数。
+
+```verilog
+module test;
+
+//实数
+real a, b, c;
+c = a + b ;
+
+//寄存器
+reg  [3:0]       cprmu_1, cprmu_2 ;
+always @(posedge clk) begin
+        cprmu_2 = cprmu_1 ^ cprmu_2 ;
+end
+         
+//函数
+reg  flag1 ;
+flag = calculate_result(A, B);
+ 
+//非法操作数
+reg [3:0]         res;
+wire [3:0]        temp;
+always@ （*）begin
+    res    = cprmu_2 – cprmu_1 ;
+    //temp = cprmu_2 – cprmu_1 ; //不合法，always块里赋值对象不能是wire型
+end
+
+endmodule
+```
+
+
+
+**操作符**
+
+Verilog 中提供了大约 9 种操作符，分别是算术、关系、等价、逻辑、按位、归约、移位、拼接、条件操作符。
+
+大部分操作符与 C 语言中类似。同类型操作符之间，除条件操作符从右往左关联，其余操作符都是自左向右关联。圆括号内表达式优先执行。例如下面每组的 2 种写法都是等价的。
+
+```verilog
+//自右向左关联，两种写法等价
+A+B-C ;
+(A+B）-C ;
+
+//自右向左关联，两种写法等价，结果为 B、D 或 F
+A ? B : C ? D : F ;
+A ? B : (C ? D : F) ;
+
+//自右向左关联，两种写法不等价
+(A ? B : C) ? D : F ;  //结果 D 或 F
+A ? B : C ? D : F ; //结果为 B、D 或 F
+
+```
+
+不同操作符之间，优先级是不同的。下表列出了操作符优先级从高至低的排列顺序。当没有圆括号时，Verilog 会根据操作符优先级对表达式进行计算。为了避免由操作符优先级导致的计算混乱，在不确定优先级时，建议用圆括号将表达式区分开来。
+
+<img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20250903143129945.png" alt="image-20250903143129945" style="zoom:67%;" />
+
+???+ 关于操作符的一些说明
+	1.如果操作数的某一位为X，则计算结果会全部出现X，例如`b = 4‘b100x; c = a + b;//结果为c=4’bxxxx`<br>
+	2.对于加法，寄存器位宽至少为较宽加数+1，无符号乘法时，结果变量位宽应该为2个操作数位宽之和，否则可能出现高位截断丢失的情况。<br>
+	3.当`±`用于表征数值的符号的时候，操作符的优先级最高。<br>	4.负数表示时，可以直接在十进制数字前面增加一个减号 **-**，也可以指定位宽。因为负数使用二进制补码来表示，不指定位宽来表示负数，编译器在转换时，会自动分配位宽，从而导致意想不到的结果。例如：`mula = -4'd4 ;mulb = 2 ;res = mula * mulb ;      //计算结果为res=-6'd8, 即res=6'h38，正常res = mula * (-'d4) ;    //(4的32次幂-4) * 2, 结果异常`<br>
+	5.对于等价操作符，逻辑相等/不等操作符不能比较 x 或 z，当操作数包含一个 x 或 z，则结果为不确定值。全等比较时，如果按位比较有相同的 x 或 z，返回结果也可以为 1，即全等比较可比较 x 或 z。所以，全等比较的结果一定不包含 x。举例如下：`A = 4 ;B = 8'h04 ;C = 4'bxxxx ;D = 4'hx ;A == B        //为真A == (B + 1)  //为假A == C        //为X，不确定A === C       //为假，返回值为0C === D       //为真，返回值为1`<br>
+	6.归约操作符包括：归约与（&），归约与非（~&），归约或（|），归约或非（~|），归约异或（^），归约同或（~^）。归约操作符只有一个操作数，它对这个向量操作数逐位进行操作，最终产生一个 1bit 结果。逻辑操作符、按位操作符和归约操作符都使用相同的符号表示，因此有时候容易混淆。区分这些操作符的关键是分清操作数的数目，和计算结果的规则。<br>
+	7.移位操作符包括左移（<<），右移（>>），算术左移（<<<），算术右移（>>>）。移位操作符是双目操作符，两个操作数分别表示要进行移位的向量信号（操作符左侧）与移动的位数（操作符右侧）。算术左移和逻辑左移时，右边低位会补 0。逻辑右移时，左边高位会补 0；而算术右移时，左边高位会补充符号位，以保证数据缩小后值的正确性。`A = 4'b1100 ;B = 4'b0010 ;A = A >> 2 ;       //结果为 4'b0011A = A << 1;         //结果为 4'b1000A = A <<< 1 ;       //结果为 4'b1000C = B + (A>>>2);    //结果为 2 + (-4/4) = 1, 4'b0001`<br>
+	8.条件操作符`condition_expression ? true_expression : false_expression`可以通过嵌套，实现多次选择的逻辑。
+
+**表达式**
+
+表达式由操作符和操作数构成，其目的是根据操作符的意义得到一个计算结果。表达式可以在出现数值的任何地方使用。
+
+```verilog
+a^b ;          //a与b进行异或操作
+address[9:0] + 10'b1 ;  //地址累加
+flag1 && flag2 ;  //逻辑与操作
+```
+
+### 二、编译指令
+
+以反引号`开始的某些标识符是Verilog系统的编译指令。下面给出8种编译指令，其中前四种使用的频率较高。
+
+**````define,`undef```**
+
+类似C语言中的`#define`，用于文本替换。一旦被编译，则在整个编译过程中都会有效(可以跨文件生效)。而``undef`用于取消定义。例如：
+
+```verilog
+`define    DATA_DW     32
+`define    S     $stop;   
+//用`S来代替系统函数$stop; (包括分号)
+`define    WORD_DEF   reg [31:0]       
+//可以用`WORD_DEF来声明32bit寄存器变量
+`undef DATA_DW
+
+```
+
+> 条件定义：
+>
+> 例如下面的例子中，如果定义了 MCU51，则使用第一种参数说明；如果没有定义 MCU、定义了 WINDOW，则使用第二种参数说明；如果 2 个都没有定义，则使用第三种参数说明。
+>
+> ```verilog
+> `ifdef       MCU51
+>     parameter DATA_DW = 8   ;
+> `elsif       WINDOW
+>     parameter DATA_DW = 64  ;
+> `else
+>     parameter DATA_DW = 32  ;
+> `endif
+> ```
+>
+> 或者使用``ifndef`来表示“如果没有相关的宏定义，那么……”
+
+**``include`**
+
+​	在编译的时候可以将一个Verilog文件内嵌到另一个Verilog文件中，作用类似于C语言中的`#include`结构，通常用于将全局的或者公用的头文件包含在设计文件里。文件可以使用相对路径或者绝对路径。
+
+```verilog
+`include         "../../param.v"
+`include         "header.v"
+```
+
+**``timescale`**
+
+​	在Verilog模型中，时延有具体的单位时间表述，并用``timescale`编译指令将时间单位与实际时间相关联。该指令用于定义时延、仿真的单位和精度，格式为：
+
+```verilog
+`timescale      time_unit / time_precision
+```
+
+​	time_unit 表示时间单位，time_precision 表示时间精度，它们均是由数字以及单位 s（秒），ms（毫秒），us（微妙），ns（纳秒），ps（皮秒）和 fs（飞秒）组成。时间精度可以和时间单位一样，但是时间精度大小不能超过时间单位大小，例如下面例子中，输出端 Z 会延迟 5.2ns (~~原网站写的是5.21ns，然而按照精度为100ps，应该是延迟5.2ns后输出结果~~)输出 A&B 的结果。
+
+```verilog
+`timescale 1ns/100ps    //时间单位为1ns，精度为100ps，合法
+//`timescale 100ps/1ns  //不合法
+module AndFunc(Z, A, B);
+    output Z;
+    input A, B ;
+    assign #5.207 Z = A & B;
+endmodule
+```
+
+​	在编译过程中，timescale指令会影响后面所有模块中的时延值，直至遇到另一个 timescale 指令或 resetall指令。
+
+​	由于在 Verilog 中没有默认的 timescale，如果没有指定 timescale，Verilog 模块就有会继承前面编译模块的 timescale 参数。有可能导致设计出错。
+
+!!! important "延时时间的计算与仿真器的执行精度"
+	**延迟时间的计算**<br>由编译器在读代码的时候完成的，完全本地化，只由在它之前定义的``timescale`指令决定，计算过程独立，不会影响到另一个模块延迟的计算<br><font color = red>简单说：计算延迟的时候，各模块“各管各的”，完全无视其他模块的设置</font><br>**仿真器的执行精度**<br>在仿真器进行运行的时候，会先扫描所有用到timescale的指令，并找到最小精度，这个最小值就是仿真的最小步长<br><font color = red>简单说：在仿真器运行的时候，使用最小的步长作为全局的精度</font>
+
+???+ note
+    ```verilog
+    // ===============================================================
+    // 模块 1: 一个慢速的与门 (AND gate)
+    // timescale 设置为 10ns / 1ns
+    // ===============================================================
+    `timescale 10ns / 1ns
+
+    module Slow_AND (
+        output out,
+        input a, b
+    );
+        // 延迟 #1.55 的计算:
+        // 1. 原始时间: 1.55 * 10ns = 15.5ns
+        // 2. 根据精度 1ns 舍入 -> 16ns
+        assign #1.55 out = a & b;
+    endmodule
+
+
+    // ===============================================================
+    // 模块 2: 一个快速的或门 (OR gate)
+    // timescale 设置为 1ns / 100ps
+    // ===============================================================
+    `timescale 1ns / 100ps
+    
+    module Fast_OR (
+        output out,
+        input a, b
+    );
+        // 延迟 #5.27 的计算:
+        // 1. 原始时间: 5.27 * 1ns = 5.27ns
+        // 2. 根据精度 100ps (0.1ns) 舍入 -> 5.3ns
+        assign #5.27 out = a | b;
+    endmodule
+
+
+    // ===============================================================
+    // 测试模块
+    // 实例化了上面两个模块
+    // ===============================================================
+    module test;
+        reg in_a, in_b;
+        wire and_out, or_out;
+    
+        // 实例化慢速与门
+        Slow_AND u_and (and_out, in_a, in_b);
+    
+        // 实例化快速或门
+        Fast_OR  u_or  (or_out, in_a, in_b);
+    
+        // 简单激励
+        initial begin
+            in_a = 0; in_b = 1;
+            #100; // 运行一段时间后停止
+        end
+    endmodule
+    ```
+
+
+
+**``default_nettype`**
+
+该命令用于将隐式的线网变量指定为线网类型，即没有声明的连线定义为线网类型
+
+```verilog
+`default_nettype wand //定义为线与类型
+`default_nettype none //该实例定义后，将不在自动产生wire类型变量
+
+//Z1 无定义就使用，系统默认Z1为wire型变量，有 Warning 无 Error
+module test_and(
+        input      A,
+        input      B,
+        output     Z);
+    assign Z1 = A & B ;  
+endmodule
+
+//Z1无定义就使用，由于编译指令的存在，系统会报Error，从而检查出书写错误
+`default_nettype none
+module test_and(
+        input      A,
+        input      B,
+        output     Z);
+    assign Z1 = A & B ;  
+endmodule
+```
+
+**``resetall`**
+
+该编译器命令将所有的编译指令重新设置为缺省值。可以避免类似timescale的错误继承。
+
+**````celldefine,`endcelldefine```**
+
+这两个程序指令用于将模块标记为单元模块，他们包含模块的定义。例如一些与、或、非门，一些 PLL 单元，PAD 模型，以及一些 Analog IP 等。
+
+```verilog
+`celldefine
+module (
+    input      clk,
+    input      rst,
+    output     clk_pll,
+    output     flag);
+        ……
+endmodule
+`endcelldefine
+```
+
+**````unconnected_drive, `nounconnected_drive```**
+
+在模块实例化中，出现在这两个编译指令间的任何未连接的输入端口，为正偏电路状态或者为反偏电路状态。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
