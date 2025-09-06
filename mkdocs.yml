@@ -38,7 +38,9 @@ nav:
       - Arm:
         - "Life Learning/ZYNQ/Arm/ARM.md"
       - ZYNQ:
-        - "Life Learning/ZYNQ/ZYNQ/HelloZYNQ.md" 
+        - "Life Learning/ZYNQ/ZYNQ/第一章 Hello ZYNQ.md" 
+        - "Life Learning/ZYNQ/ZYNQ/第二章 SDK程序固化.md" 
+        - "Life Learning/ZYNQ/ZYNQ/第三章 SOC调试技巧.md" 
 
   - FreeWriting:
     - 团建:
