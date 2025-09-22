@@ -5,6 +5,8 @@
 > 1. [TestBench基本写法与语法详解_testbench怎么写-CSDN博客](https://blog.csdn.net/weixin_39269366/article/details/120742707)
 > 2. [6.1 Verilog 函数 | 菜鸟教程](https://www.runoob.com/w3cnote/verilog-function.html)
 
+
+
 ## <font color = red>4.6 Verilog激励</font>
 
 ### 一、TestBench简介
@@ -102,3 +104,68 @@ endmodule
 
 
 
+## <font color = red>4.7 IP核的使用</font>
+
+### 4.7.1 ILA IPcore
+
+> ILA，即Integrated Logic Analyzer，中文名叫集成逻辑分析仪。
+
+#### 一、ILA核的作用
+
+它允许你：
+
+- 在 FPGA 上电运行时，**抓取任意内部寄存器、总线、状态机、控制信号等的实时值**
+- 设置**触发条件**（如：当 cnt == 100 时开始抓波形）
+- 把数据通过 JTAG 传回 Vivado 的 Hardware Manager 界面
+- **图形化查看波形**，就像仿真波形一样！
+
+#### 二、ILA核的工作原理
+
+```markdown
+你的设计逻辑
+    │
+    ├── 信号A ───┐
+    ├── 信号B ───┤
+    └── 时钟CLK ─┼──→ [ ILA Core ] ←── JTAG ←→ Vivado Hardware Manager
+                 │       (抓取+缓存)
+                 └── 触发条件（可选）	
+```
+
+- ILA Core 是一个嵌入在你设计中的“监控模块”
+- 它持续采样你指定的信号（在时钟上升沿）
+- 当满足触发条件时，把前后一段时间的数据存入 BRAM
+- 通过 JTAG 接口把数据传到电脑，在 Vivado 中显示波形
+
+#### 三、ILA核的设置参数
+
+1. **采样时钟（Capture Clock）**
+
+   - 用来采样信号的时钟（必须是你设计中存在的时钟）
+   - 所有探针信号都在这个时钟沿采样
+
+2. **探针（Probes）**
+
+   - 你想观察的信号（可多个）
+   - 每个探针可设置位宽（如 8-bit、32-bit）
+
+3. **采样深度（Sample Depth）**
+
+   - 存储多少个采样点（如 1024、4096）
+   - 越大占 BRAM 越多，但能看更长时间
+
+4. **触发条件（Trigger Condition）**
+
+   - 默认是“立即触发”或“手动触发”
+   - 可设置复杂条件：如 `probe0[3:0] == 4'hA && probe1[0] == 1`
+
+   
+
+#### 四、ILA核的实际配置过程
+
+**添加ILA核**
+
+![image-20250918185041860](https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20250918185041860.png)
+
+**设置位宽**
+
+![image-20250918185316639](https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20250918185316639.png)
