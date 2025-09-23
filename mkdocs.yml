@@ -45,8 +45,8 @@ nav:
   - FreeWriting:
     - 团建:
       - "freewriting/团建/团建小游戏.md"
-    - 东南大学面试复盘:
-      - "freewriting/东南大学面试复盘/东南大学面试复盘.md"
+    # - 东南大学面试复盘:
+    #   - "freewriting/东南大学面试复盘/东南大学面试复盘.md"
     - 专利写作:
       - "freewriting/专利写作/专利写作经验分享.md"
 
