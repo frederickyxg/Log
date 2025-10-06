@@ -15,6 +15,11 @@ nav:
     - "NBU-NOTES/信号与系统/信号与系统.md"
     - "NBU-NOTES/单片机/MCU.md"
     - "NBU-NOTES/电磁场与电磁波/电磁场与电磁波.md"
+  
+  - SEU-NOTES:
+    - Pre:
+      - "SEU-NOTES/PRE/研0干些啥/研0干些啥.md"
+
 
   - Tools:
     - markdown:
