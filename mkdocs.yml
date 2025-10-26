@@ -19,6 +19,9 @@ nav:
   - SEU-NOTES:
     - Pre:
       - "SEU-NOTES/PRE/研0干些啥/研0干些啥.md"
+      - "SEU-NOTES/PRE/硬件工程师入门/01_硬件工程师入门.md"
+      - "SEU-NOTES/PRE/天线入门/01_天线入门.md"
+
 
 
   - Tools:
@@ -50,8 +53,8 @@ nav:
   - FreeWriting:
     - 团建:
       - "freewriting/团建/团建小游戏.md"
-    # - 东南大学面试复盘:
-    #   - "freewriting/东南大学面试复盘/东南大学面试复盘.md"
+    - 东南大学面试复盘:
+      - "freewriting/东南大学面试复盘/东南大学面试复盘.md"
     - 专利写作:
       - "freewriting/专利写作/专利写作经验分享.md"
 
