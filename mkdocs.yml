@@ -19,10 +19,15 @@ nav:
   - SEU-NOTES:
     - Pre:
       - "SEU-NOTES/PRE/研0干些啥/研0干些啥.md"
+<<<<<<< HEAD
       - "SEU-NOTES/PRE/研0干些啥/Pythonlearning.md"
       - "SEU-NOTES/PRE/硬件工程师入门/01_硬件工程师入门.md"
       - "SEU-NOTES/PRE/天线入门/01_天线入门.md"
       - "SEU-NOTES/PRE/Altium Design/AD_learning.md"
+=======
+      - "SEU-NOTES/PRE/硬件工程师入门/01_硬件工程师入门.md"
+      - "SEU-NOTES/PRE/天线入门/01_天线入门.md"
+>>>>>>> 1387dc325afc744ed70d886beba275f34a3cd49a
 
 
 
