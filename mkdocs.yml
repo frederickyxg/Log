@@ -19,10 +19,17 @@ nav:
   - SEU-NOTES:
     - Pre:
       - "SEU-NOTES/PRE/研0干些啥/研0干些啥.md"
-      - "SEU-NOTES/PRE/Python Learning/Pythonlearning.md"
-      - "SEU-NOTES/PRE/硬件工程师入门/01_硬件工程师入门.md"
-      - "SEU-NOTES/PRE/天线入门/01_天线入门.md"
-      - "SEU-NOTES/PRE/Altium Design/AD_learning.md"
+      - Python:
+        - "SEU-NOTES/PRE/Python Learning/Pythonlearning.md"
+        - "SEU-NOTES/PRE/Python Learning/Python & PyAnsys.md"
+      - 硬件工程师:
+        - "SEU-NOTES/PRE/硬件工程师入门/01_硬件工程师入门.md"
+        - "SEU-NOTES/PRE/Altium Design/AD_learning.md"
+      - 天线:
+        - "SEU-NOTES/PRE/天线入门/01_天线入门.md"
+        - "SEU-NOTES/PRE/天线入门/02_PAbasic.md"
+        - "SEU-NOTES/PRE/天线入门/03_HFSS入门.md"     
+
 
 
 
