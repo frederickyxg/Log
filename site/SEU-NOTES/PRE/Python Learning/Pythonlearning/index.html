@@ -1,0 +1,5345 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lazy">
+      
+      
+        <meta name="author" content="Frederick_Yxg">
+      
+      
+        <link rel="canonical" href="https://frederickyxg.github.io/FrederickLOG.github.io/SEU-NOTES/PRE/Python%20Learning/Pythonlearning/">
+      
+      
+        <link rel="prev" href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/">
+      
+      
+        <link rel="next" href="../Python%20%26%20PyAnsys/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../img/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Python学习 - Frederick's Logs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.499.75a.75.75%200%200%201%201.5%200v.996C5.9%202.903%206.793%203.65%207.662%204.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873%2010.794-.045%2012.622.26%2014.408.558%2016%201.94%2016%204.25c0%201.278-.954%202.575-2.44%202.734l.146.508.065.22c.203.701.412%201.455.476%202.226.142%201.707-.4%203.03-1.487%203.898C11.714%2014.671%2010.27%2015%208.75%2015h-6a.75.75%200%200%201%200-1.5h1.376a4.5%204.5%200%200%201-.563-1.191%203.84%203.84%200%200%201-.05-2.063%204.65%204.65%200%200%201-2.025-.293.75.75%200%200%201%20.525-1.406c1.357.507%202.376-.006%202.698-.318l.009-.01a.747.747%200%200%201%201.06%200%20.75.75%200%200%201-.012%201.074c-.912.92-.992%201.835-.768%202.586.221.74.745%201.337%201.196%201.621H8.75c1.343%200%202.398-.296%203.074-.836.635-.507%201.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4%202.4%200%200%201-.507-.441%203.1%203.1%200%200%201-.633-1.248.75.75%200%200%201%201.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738%200%201.25-.615%201.25-1.25%200-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706%201.345-.46.92-.27%201.774.019%203.062l.042.19.01.05c.348.443.666.949.94%201.553a.75.75%200%201%201-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7%205.527c-.814-.68-1.75-1.462-2.692-2.619a3.7%203.7%200%200%200-1.023.88c-.406.495-.663%201.036-.722%201.508.116.122.306.21.591.239.388.038.797-.06%201.032-.19a.75.75%200%200%201%20.728%201.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75%205.677V5.5c0-.984.48-1.94%201.077-2.664.46-.559%201.05-1.055%201.673-1.353z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');--md-admonition-icon--previous:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20256%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l160%20160c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256l137.3-137.4c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-160%20160z%22/%3E%3C/svg%3E');--md-admonition-icon--next:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20256%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M247.1%20233.4c12.5%2012.5%2012.5%2032.8%200%2045.3l-160%20160c-12.5%2012.5-32.8%2012.5-45.3%200s-12.5-32.8%200-45.3L179.2%20256%2041.9%20118.6c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l160%20160z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Segoe UI";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../extra_css/custom_theme.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Frederick&#39;s Logs" class="md-header__button md-logo" aria-label="Frederick's Logs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Frederick's Logs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python学习
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54s-2.94 8.27-7 9.54c.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://frederickyxg.github.io/Log/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Frederickyxg
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  HOME
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../NBU-NOTES/" class="md-tabs__link">
+          
+  
+  
+  NBU-NOTES
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/" class="md-tabs__link">
+          
+  
+  
+  SEU-NOTES
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tools_for_mylog/markdown/" class="md-tabs__link">
+          
+  
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Life%20Learning/Dive%20into%20Deep%20Learning/Dive%20into%20Deeplearning/" class="md-tabs__link">
+          
+  
+  
+  Life Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../freewriting/%E5%9B%A2%E5%BB%BA/%E5%9B%A2%E5%BB%BA%E5%B0%8F%E6%B8%B8%E6%88%8F/" class="md-tabs__link">
+          
+  
+  
+  FreeWriting
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Frederick&#39;s Logs" class="md-nav__button md-logo" aria-label="Frederick's Logs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Frederick's Logs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://frederickyxg.github.io/Log/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Frederickyxg
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HOME
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NBU-NOTES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NBU-NOTES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模拟电子技术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数字电子技术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E9%80%9A%E4%BF%A1%E7%94%B5%E5%AD%90%E7%BA%BF%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    通信电子线路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号与系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E5%8D%95%E7%89%87%E6%9C%BA/MCU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../NBU-NOTES/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电磁场与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEU-NOTES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEU-NOTES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pre
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研0干些啥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python学习
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3基本语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3基本语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标识符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保留字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行与缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串(String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        等待用户输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个语句构成代码组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        print输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importfromimport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        import与from...import
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令行参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3基本数据类型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3基本数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个变量赋值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准数据类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number数字
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Number数字">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数值运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机数函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学常量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String(字符串)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String(字符串)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转义字符
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool(布尔类型)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List(列表)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple(元组)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set(集合)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary(字典)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bytes类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3的数据类型转换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3的数据类型转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐式类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显示类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3解释器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3运算符
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算术运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比较运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        赋值运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逻辑运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成员运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        身份运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运算符优先级
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%26%20PyAnsys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python &amp; PyAnsys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬件工程师
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    硬件工程师
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A1%AC%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%85%A5%E9%97%A8/01_%E7%A1%AC%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬件工程师入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Altium%20Design/AD_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Altium Design Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    天线
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    天线
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A9%E7%BA%BF%E5%85%A5%E9%97%A8/01_%E5%A4%A9%E7%BA%BF%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    天线入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A9%E7%BA%BF%E5%85%A5%E9%97%A8/02_PAbasic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    相控阵天线入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A9%E7%BA%BF%E5%85%A5%E9%97%A8/03_HFSS%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansys HFSS学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    markdown
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    markdown
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools_for_mylog/markdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools_for_mylog/markdown/Markdown%20Learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools_for_mylog/markdown/quick%20search%20for%20md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    quick search for md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mkdocs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    mkdocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools_for_mylog/mkdocs/official%20doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    official doc trans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Life Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Life Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dive into Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dive into Deep Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/Dive%20into%20Deep%20Learning/Dive%20into%20Deeplearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dive into Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZYNQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZYNQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verilog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verilog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verilog基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Verilog%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章 Verilog简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Verilog%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章 Verilog基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/%E7%AC%AC%E4%B8%89%E7%AB%A0%20Verilog%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章 Verilog进阶语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20Verilog%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章 Verilog模块与函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Verilog/%E7%AC%AC%E4%BA%94%E7%AB%A0%20Verilog%20DEMO%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第五章 Verilog DEMO设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/Arm/ARM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARM语法基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZYNQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZYNQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/ZYNQ/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hello%20ZYNQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章 Hello ZYNQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life%20Learning/ZYNQ/ZYNQ/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20SDK%E7%A8%8B%E5%BA%8F%E5%9B%BA%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章 SDK程序固化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Life Learning/ZYNQ/ZYNQ/第三章 SOC调试技巧.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FreeWriting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FreeWriting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    团建
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    团建
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freewriting/%E5%9B%A2%E5%BB%BA/%E5%9B%A2%E5%BB%BA%E5%B0%8F%E6%B8%B8%E6%88%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    团建小游戏
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    东南大学面试复盘
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    东南大学面试复盘
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freewriting/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    东南大学面试复盘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专利写作
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    专利写作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freewriting/%E4%B8%93%E5%88%A9%E5%86%99%E4%BD%9C/%E4%B8%93%E5%88%A9%E5%86%99%E4%BD%9C%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专利写作经验分享
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3基本语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3基本语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标识符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保留字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行与缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串(String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        等待用户输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个语句构成代码组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        print输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importfromimport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        import与from...import
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令行参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3基本数据类型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3基本数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个变量赋值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准数据类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number数字
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Number数字">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数值运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机数函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学常量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String(字符串)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String(字符串)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转义字符
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool(布尔类型)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List(列表)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple(元组)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set(集合)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary(字典)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bytes类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3的数据类型转换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3的数据类型转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐式类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显示类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3解释器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python3运算符
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python3运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算术运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比较运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        赋值运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逻辑运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成员运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        身份运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运算符优先级
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    HOME
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    SEU-NOTES
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Pre
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python">Python学习<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<h2 id="python3">Python3基本语法<a class="headerlink" href="#python3" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="_1">编码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>默认情况下，Python3源码文件以UTF-8编码，所有字符串都是unicode字符串。当然，也可以为源码文件制定不同的编码：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># -*- coding:cp-1252 -*-</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_2">标识符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>标识符必须以字母或者下划线开头</li>
+<li>标识符(变量)在使用前必须先定义</li>
+<li>标识符的其他部分由字母、数字和下划线组成</li>
+<li>标识符对大小写敏感</li>
+<li>标识符对长度无硬性限制</li>
+<li>不能使用保留关键字，如if\for\class等</li>
+</ul>
+<blockquote>
+<p>让人惊讶的是，python可能是第一个主流编程语言支持中文变量名的(至少据我所知是这样的)</p>
+<p><center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251104165728834.png" alt="image-20251104165728834" style="zoom:50%;" /></center></p>
+</blockquote>
+<hr />
+<h3 id="_3">保留字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">[</span><span class="s1">&#39;False&#39;</span><span class="p">,</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;assert&#39;</span><span class="p">,</span> <span class="s1">&#39;async&#39;</span><span class="p">,</span> <span class="s1">&#39;await&#39;</span><span class="p">,</span> <span class="s1">&#39;break&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;continue&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="s1">&#39;elif&#39;</span><span class="p">,</span> <span class="s1">&#39;else&#39;</span><span class="p">,</span> <span class="s1">&#39;except&#39;</span><span class="p">,</span> <span class="s1">&#39;finally&#39;</span><span class="p">,</span> <span class="s1">&#39;for&#39;</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="s1">&#39;import&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda&#39;</span><span class="p">,</span> <span class="s1">&#39;nonlocal&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="s1">&#39;try&#39;</span><span class="p">,</span> <span class="s1">&#39;while&#39;</span><span class="p">,</span> <span class="s1">&#39;with&#39;</span><span class="p">,</span> <span class="s1">&#39;yield&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_4">注释<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Python中的单行注释以<code>#</code>开头，多行注释可以用多个<code>#</code>或者使用<code>'''</code>或<code>"""</code>将注释段落包围起来，下面是例子</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># 第一个注释</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 第二个注释</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="sd">第三注释</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sd">第四注释</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="sd">第五注释</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="sd">第六注释</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hello, Python!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>注意，Python3不支持嵌套注释，例如下面你的示例是不合法的，但是单行注释是可以嵌套在多行注释里面的。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">这是外部的多行注释</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">可以包含一些描述性的内容</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">这是尝试嵌套的多行注释</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">会导致语法错误</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="sd">&#39;&#39;&#39;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="_5">行与缩进<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>python最具特色就是使用缩进来表示代码块，不需要使用大括号<code>{}</code></p>
+<p>缩进的空格数是可以改变的，但是同一个代码块的语句必须由相同的空格数。下面是实例：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>下面的代码最后一行语句缩进数的空格数不一致，会导致错误：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Answer&quot;</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Answer&quot;</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">)</span>    <span class="c1"># 缩进不一致，会导致运行错误</span>
+</span></code></pre></div>
+<p>另外，python通常是一行写完一句语句，如果语句很长，可以使用反斜杠<code>\</code>来实现多行语句，例如：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">total</span> <span class="o">=</span> <span class="n">item_one</span> <span class="o">+</span> \
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        <span class="n">item_two</span> <span class="o">+</span> \
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">item_three</span>
+</span></code></pre></div>
+<p>而在<code>[],{},()</code>等中的多行语句，不需要使用反斜杠<code>\</code>，例如</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_one&#39;</span><span class="p">,</span> <span class="s1">&#39;item_two&#39;</span><span class="p">,</span> <span class="s1">&#39;item_three&#39;</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        <span class="s1">&#39;item_four&#39;</span><span class="p">,</span> <span class="s1">&#39;item_five&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>空行</strong></p>
+<p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。</p>
+<p>空行与代码缩进不同，空行并不是 Python 语法的一部分。书写时不插入空行，Python 解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。</p>
+<p><strong>记住：</strong>空行也是程序代码的一部分。</p>
+<p><strong>同一行显示多条语句</strong></p>
+<p>python支持在同一行中使用多条语句，语句之间使用分号分隔。</p>
+<hr />
+<h3 id="_6">数字类型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>python中有四种数字类型：整数、布尔型、浮点数和复数</p>
+<table>
+<thead>
+<tr>
+<th>数字类型</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int(整数)</td>
+<td>只有一种整数类型int，表示为长整数型，没有python2中的Long类型</td>
+<td>1 2 3</td>
+</tr>
+<tr>
+<td>bool(布尔)</td>
+<td>只有两种类型</td>
+<td>True False</td>
+</tr>
+<tr>
+<td>float(浮点数)</td>
+<td>小数，可以使用科学计数法表示</td>
+<td>1.23 3e-2(<span class="arithmatex">\(3\times 10^{-2} 0.03\)</span>)</td>
+</tr>
+<tr>
+<td>complex(复数)</td>
+<td>由实部和虚部组成，形式为<span class="arithmatex">\(a+bj\)</span></td>
+<td>1.1+3.2j</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="string">字符串(String)<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
+<ul>
+<li>python中单引号和双引号的使用完全相同</li>
+<li>使用三引号可以指定一个多行字符串</li>
+<li>转义符为<code>\</code>，如果在字符前使用<code>r</code>可以让字符串不进行转义，如<strong>r"this is a line with \n"</strong> 则 <strong>\n</strong> 会显示，并不是换行。</li>
+<li>按字面意义级联的字符串，如 <strong>"this " "is " "string"</strong> 会被自动转换为 <strong>this is string</strong>。</li>
+<li>字符串可以用<code>+</code>运算符连接在一起，用<code>*</code>运算符表示重复。</li>
+<li>Python中的字符串由两种索引方式，从左往右以<code>0</code>开始，从右往左以<code>-1</code>开始</li>
+<li>Python中的字符串不能改变</li>
+<li>Python没有单独的字符类型，一个字符就是长度为1的字符串</li>
+<li>字符串切片<code>str[start:end]</code>，其中start(包含)是切片开始的所以，end(不包含)是切片结束的索引</li>
+<li>字符串的切片可以加上步长参数step,语法格式如下：<code>srt[start:end:step]</code></li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;123456789&#39;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>                 <span class="c1"># 输出字符串</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>           <span class="c1"># 输出第一个到倒数第二个的所有字符</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>              <span class="c1"># 输出字符串第一个字符</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>            <span class="c1"># 输出从第三个开始到第六个的字符（不包含）</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>             <span class="c1"># 输出从第三个开始后的所有字符</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>          <span class="c1"># 输出从第二个开始到第五个且每隔一个的字符（步长为2）</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>             <span class="c1"># 输出字符串两次</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span> <span class="o">+</span> <span class="s1">&#39;你好&#39;</span><span class="p">)</span>         <span class="c1"># 连接字符串</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------------&#39;</span><span class="p">)</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello</span><span class="se">\n</span><span class="s1">runoob&#39;</span><span class="p">)</span>      <span class="c1"># 使用反斜杠(\)+n转义特殊字符</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;hello\nrunoob&#39;</span><span class="p">)</span>     <span class="c1"># 在字符串前面添加一个 r，表示原始字符串，不会发生转义</span>
+</span></code></pre></div>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251104173847720.png" alt="image-20251104173847720" style="zoom:67%;" /></center></p>
+</details>
+<hr />
+<h3 id="_7">等待用户输入<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>执行下面你的程序在按回车键后会等待用户输入</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">按下 enter 键后退出。&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>以上代码中 ，<strong>\n\n</strong> 在结果输出前会输出两个新的空行。一旦用户按下 <strong>enter</strong> 键时，程序将退出。</p>
+<hr />
+<h3 id="_8">多个语句构成代码组<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>缩进相同的一组语句构成一个代码块，成为代码组</p>
+<p>像if,while,def和class这样的符合语句，首行以关键字开始，以冒号结束，改行之后的一行或者多行代码构成代码组。</p>
+<p>将首行及后面的代码组称为一个子句，如下</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">if</span> <span class="n">expression</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">suite</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">elif</span> <span class="n">expression</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">suite</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">suite</span>
+</span></code></pre></div>
+<hr />
+<h3 id="print">print输出<a class="headerlink" href="#print" title="Permanent link">&para;</a></h3>
+<p>print输出默认是换行的，如果不需要实现换行需要再变量末尾加上<code>end=""</code></p>
+<details class="example">
+<summary>Example</summary>
+<p><center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251104174717660.png" alt="image-20251104174717660" /></center></p>
+</details>
+<hr />
+<h3 id="importfromimport">import与from...import<a class="headerlink" href="#importfromimport" title="Permanent link">&para;</a></h3>
+<p>在 python 用 <strong>import</strong> 或者 <strong>from...import</strong> 来导入相应的模块。</p>
+<p>将整个模块(somemodule)导入，格式为： <strong>import somemodule</strong></p>
+<p>从某个模块中导入某个函数,格式为： <strong>from somemodule import somefunction</strong></p>
+<p>从某个模块中导入多个函数,格式为： <strong>from somemodule import firstfunc, secondfunc, thirdfunc</strong></p>
+<p>将某个模块中的全部函数导入，格式为： **from somemodule import **</p>
+<details class="example">
+<summary>Example</summary>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;================Python import mode==========================&#39;</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;命令行参数为:&#39;</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> python 路径为&#39;</span><span class="p">,</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</span></code></pre></div>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251104175059259.png" alt="image-20251104175059259" style="zoom:80%;" /></center></p>
+</details>
+<hr />
+<h3 id="_9">命令行参数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>很多程序可以执行一些操作来查看一些基本信息，Python可以使用-h参数查看各参数帮助信息：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">h</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">usage</span><span class="p">:</span> <span class="n">python</span> <span class="p">[</span><span class="n">option</span><span class="p">]</span> <span class="o">...</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">cmd</span> <span class="o">|</span> <span class="o">-</span><span class="n">m</span> <span class="n">mod</span> <span class="o">|</span> <span class="n">file</span> <span class="o">|</span> <span class="o">-</span><span class="p">]</span> <span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">...</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">Options</span> <span class="ow">and</span> <span class="n">arguments</span> <span class="p">(</span><span class="ow">and</span> <span class="n">corresponding</span> <span class="n">environment</span> <span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="o">-</span><span class="n">c</span> <span class="n">cmd</span> <span class="p">:</span> <span class="n">program</span> <span class="n">passed</span> <span class="ow">in</span> <span class="k">as</span> <span class="n">string</span> <span class="p">(</span><span class="n">terminates</span> <span class="n">option</span> <span class="nb">list</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="o">-</span><span class="n">d</span>     <span class="p">:</span> <span class="n">debug</span> <span class="n">output</span> <span class="kn">from</span><span class="w"> </span><span class="nn">parser</span> <span class="p">(</span><span class="n">also</span> <span class="n">PYTHONDEBUG</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="o">-</span><span class="n">E</span>     <span class="p">:</span> <span class="n">ignore</span> <span class="n">environment</span> <span class="n">variables</span> <span class="p">(</span><span class="n">such</span> <span class="k">as</span> <span class="n">PYTHONPATH</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="o">-</span><span class="n">h</span>     <span class="p">:</span> <span class="nb">print</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">[</span> <span class="n">etc</span><span class="o">.</span> <span class="p">]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="python3_1">Python3基本数据类型<a class="headerlink" href="#python3_1" title="Permanent link">&para;</a></h2>
+<p>Python 中的变量不需要声明。<strong>每个变量在使用前都必须赋值</strong>，变量赋值以后该变量才会被创建。</p>
+<p>在 Python 中，变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。</p>
+<p>等号（=）用来给变量赋值。</p>
+<p>等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。</p>
+<hr />
+<h3 id="_10">多个变量赋值<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>python允许同时为多个变量赋值。例如</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+</span></code></pre></div>
+<p>或者为多个对象指定多个变量</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;runoob&quot;</span>
+</span></code></pre></div>
+<p>可以通过<code>type()</code>函数查看变量的类型</p>
+<details class="example">
+<summary>Example</summary>
+<p><center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251105200357877.png" alt="image-20251105200357877" /></center></p>
+</details>
+<hr />
+<h3 id="_11">标准数据类型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Python3中常见的数据类型为</p>
+<ul>
+<li>Number（数字）</li>
+<li>String（字符串）</li>
+<li>bool（布尔类型）</li>
+<li>List（列表）</li>
+<li>Tuple（元组）</li>
+<li>Set（集合）</li>
+<li>Dictionary（字典）</li>
+</ul>
+<p>Python3 的六个标准数据类型中：</p>
+<ul>
+<li><strong>不可变数据（3 个）：</strong>Number（数字）、String（字符串）、Tuple（元组）；</li>
+<li><strong>可变数据（3 个）：</strong>List（列表）、Dictionary（字典）、Set（集合）。</li>
+</ul>
+<p>此外还有一些高级的数据类型，如: 字节数组类型(bytes)。</p>
+<hr />
+<h3 id="number">Number数字<a class="headerlink" href="#number" title="Permanent link">&para;</a></h3>
+<p>Python3 支持 <strong>int、float、bool、complex（复数）</strong></p>
+<p>除了使用<code>type()</code>函数以外，还可以使用<code>isinstance([变量],[类型])</code>，该函数会返回输入的变量是否为输入的类型。两者之间的差别在于<code>isinstance()</code>会认为子类时一种父类类型。</p>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251105201039036.png" alt="image-20251105201039036" style="zoom:50%;" /></center>
+
+<p>上面的代码是先声明类A，再声明一个子类B，即B继承自A，也就是说，B是A的一种类型。</p>
+<details class="example">
+<summary>Example</summary>
+<p>在Python3中，bool是int的子类，True和False可以和数字相加如果使用<code>==</code>，则会返回True，可以通过<code>is</code>来判断是否是bool类型。例如</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> 
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kc">True</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span><span class="o">==</span><span class="mi">1</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kc">True</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span><span class="o">==</span><span class="mi">0</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kc">True</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span><span class="o">+</span><span class="mi">1</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="mi">2</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span><span class="o">+</span><span class="mi">1</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="mi">1</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="ow">is</span> <span class="kc">True</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="o">&lt;</span><span class="n">python</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">SyntaxWarning</span><span class="p">:</span> <span class="s2">&quot;is&quot;</span> <span class="k">with</span> <span class="s1">&#39;int&#39;</span> <span class="n">literal</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span> <span class="s2">&quot;==&quot;</span><span class="err">?</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>  <span class="mi">1</span> <span class="ow">is</span> <span class="kc">True</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kc">False</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">is</span> <span class="kc">False</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="o">&lt;</span><span class="n">python</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">SyntaxWarning</span><span class="p">:</span> <span class="s2">&quot;is&quot;</span> <span class="k">with</span> <span class="s1">&#39;int&#39;</span> <span class="n">literal</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span> <span class="s2">&quot;==&quot;</span><span class="err">?</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>  <span class="mi">0</span> <span class="ow">is</span> <span class="kc">False</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="kc">False</span>
+</span></code></pre></div>
+</details>
+<p>​    <strong>什么会出现 SyntaxWarning？</strong><br>Python 检测到你在用 is 比较一个字面量整数（如 1）和 True，这通常是代码错误（因为 is 比较的是身份，而不是值）。Python 建议你使用 == 来比较值是否相等，除非你确实想检查是否是同一个对象。在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。</p>
+<hr />
+<h4 id="_12">数值运算<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span>  <span class="c1"># 加法</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="mi">9</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">4.3</span> <span class="o">-</span> <span class="mi">2</span> <span class="c1"># 减法</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="mf">2.3</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">7</span>  <span class="c1"># 乘法</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="mi">21</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># 除法，得到一个浮点数</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="mf">0.5</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">//</span> <span class="mi">4</span> <span class="c1"># 除法，得到一个整数，类似于\</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="mi">0</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span> <span class="c1"># 取余 </span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="mi">2</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">5</span> <span class="c1"># 乘方</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="mi">32</span>
+</span></code></pre></div>
+<ul>
+<li>一个变量可以通过赋值指向不同类型的对象。</li>
+<li>在混合计算的时候，Python会将整型转换成浮点数。</li>
+<li>Python的复数可以由实部和虚部构成，<code>a+bj</code>或者<code>complex(a,b)</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>python是一种动态类型语言，类型是绑定在对象上，而非变量上。即对象拥有类型，如数字10永远是int类型，而变量没有类型，他只储存一个引用地址，指向它当前关联的对象。当python在程序运行的时候会检查对象的类型。这一特征的优点在于代码更加简介灵活，益于开发，代价在于错误的类型对象不会再编译器刚开始运行的时候检查出来，只有程序运行到存在错误的一行会抛出<code>typeError</code>。当一个运行了很久的代码在中途抛出<code>typeError</code>就老实了<del><sub>(笑)</sub></del></p>
+</div>
+<h4 id="_13">数学函数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">返回值 ( 描述 )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-abs.html">abs(x)</a></td>
+<td style="text-align: left;">返回数字的绝对值，如abs(-10) 返回 10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-ceil.html">ceil(x)</a></td>
+<td style="text-align: left;">返回数字的向上取整，如math.ceil(4.1) 返回 5</td>
+</tr>
+<tr>
+<td style="text-align: left;">cmp(x, y)</td>
+<td style="text-align: left;">如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1。 <strong>Python 3 已废弃，使用 (x&gt;y)-(x&lt;y) 替换</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-exp.html">exp(x)</a></td>
+<td style="text-align: left;">返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-fabs.html">fabs(x)</a></td>
+<td style="text-align: left;">以浮点数形式返回数字的绝对值，如math.fabs(-10) 返回10.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-floor.html">floor(x)</a></td>
+<td style="text-align: left;">返回数字的向下取整，如math.floor(4.9)返回 4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-log.html">log(x)</a></td>
+<td style="text-align: left;">如math.log(math.e)返回1.0,math.log(100,10)返回2.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-log10.html">log10(x)</a></td>
+<td style="text-align: left;">返回以10为基数的x的对数，如math.log10(100)返回 2.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-max.html">max(x1, x2,...)</a></td>
+<td style="text-align: left;">返回给定参数的最大值，参数可以为序列。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-min.html">min(x1, x2,...)</a></td>
+<td style="text-align: left;">返回给定参数的最小值，参数可以为序列。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-modf.html">modf(x)</a></td>
+<td style="text-align: left;">返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-pow.html">pow(x, y)</a></td>
+<td style="text-align: left;">x**y 运算后的值。</td>
+</tr>
+<tr>
+<td style="text-align: left;">[round(x <a href="https://www.runoob.com/python3/python3-func-number-round.html">,n])</a></td>
+<td style="text-align: left;">返回浮点数 x 的四舍五入值，如给出 n 值，则代表舍入到小数点后的位数。<strong>其实准确的说是保留值将保留到离上一位更近的一端。</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-sqrt.html">sqrt(x)</a></td>
+<td style="text-align: left;">返回数字x的平方根。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_14">随机数函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>随机数可以用于数学，游戏，安全等领域中，还经常被嵌入到算法中，用以提高算法效率，并提高程序的安全性。</p>
+<p>Python包含以下常用随机数函数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-choice.html">choice(seq)</a></td>
+<td style="text-align: left;">从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</td>
+</tr>
+<tr>
+<td style="text-align: left;">[randrange (<a href="https://www.runoob.com/python3/python3-func-number-randrange.html">start,] stop [,step])</a></td>
+<td style="text-align: left;">从指定范围内，按指定基数递增的集合中获取一个随机数，基数默认值为 1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-random.html">random()</a></td>
+<td style="text-align: left;">随机生成下一个实数，它在[0,1)范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;">seed(<a href="https://www.runoob.com/python3/python3-func-number-seed.html">x)</a></td>
+<td style="text-align: left;">改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-shuffle.html">shuffle(lst)</a></td>
+<td style="text-align: left;">将序列的所有元素随机排序</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-uniform.html">uniform(x, y)</a></td>
+<td style="text-align: left;">随机生成下一个实数，它在[x,y]范围内。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_15">三角函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-acos.html">acos(x)</a></td>
+<td style="text-align: left;">返回x的反余弦弧度值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-asin.html">asin(x)</a></td>
+<td style="text-align: left;">返回x的反正弦弧度值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-atan.html">atan(x)</a></td>
+<td style="text-align: left;">返回x的反正切弧度值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-atan2.html">atan2(y, x)</a></td>
+<td style="text-align: left;">返回给定的 X 及 Y 坐标值的反正切值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-cos.html">cos(x)</a></td>
+<td style="text-align: left;">返回x的弧度的余弦值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-hypot.html">hypot(x, y)</a></td>
+<td style="text-align: left;">返回欧几里德范数 sqrt(x<em>x + y</em>y)。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-sin.html">sin(x)</a></td>
+<td style="text-align: left;">返回的x弧度的正弦值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-tan.html">tan(x)</a></td>
+<td style="text-align: left;">返回x弧度的正切值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-degrees.html">degrees(x)</a></td>
+<td style="text-align: left;">将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-number-radians.html">radians(x)</a></td>
+<td style="text-align: left;">将角度转换为弧度</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_16">数学常量<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常量</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pi</td>
+<td style="text-align: left;">数学常量 pi（圆周率，一般以π来表示）</td>
+</tr>
+<tr>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">数学常量 e，e即自然常数（自然常数）。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_17">其他说明<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Python数字数据类型用于存储数值，不允许改变，如果要改变数字数据类型的值，将重新分配内存空间。</li>
+</ol>
+<p>可以使用del语句删除一些数字对象的引用</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">del</span> <span class="n">var1</span><span class="p">[,</span><span class="n">var2</span><span class="p">,[</span><span class="o">...</span><span class="p">,</span><span class="n">varN</span><span class="p">]]</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">del</span> <span class="n">var_a</span><span class="p">,</span><span class="n">var_b</span>
+</span></code></pre></div>
+<ol>
+<li>可以使用十六进制或者八进制来表示整数</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mh">0xA0F</span> <span class="c1"># 十六进制</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="mi">2575</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span><span class="o">=</span><span class="mo">0o37</span> <span class="c1"># 八进制</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="mi">31</span>
+</span></code></pre></div>
+<ol>
+<li>
+<p>数字类型转换</p>
+</li>
+<li>
+<p><strong>int(x)</strong> 将x转换为一个整数。</p>
+</li>
+<li><strong>float(x)</strong> 将x转换到一个浮点数。</li>
+<li><strong>complex(x)</strong> 将x转换到一个复数，实数部分为 x，虚数部分为 0。</li>
+<li><strong>complex(x, y)</strong> 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</li>
+</ol>
+<hr />
+<h3 id="string_1">String(字符串)<a class="headerlink" href="#string_1" title="Permanent link">&para;</a></h3>
+<h4 id="_18">基本语法<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>Python中的字符串用双引号或者单引号括起来，用反斜杠表示转义特殊字符。</p>
+<p>字符串的截取的语法格式如下：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">变量</span><span class="p">[</span><span class="n">头下标</span><span class="p">:</span><span class="n">尾下标</span><span class="p">]</span>
+</span></code></pre></div>
+<p>索引值以0开始，-1为末尾的开始位置</p>
+<p><center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/123456-20200923-1.svg" alt="img" style="zoom:50%;" /></center></p>
+<blockquote>
+<p>图片来源于：https://www.runoob.com/python3/python3-data-type.html</p>
+</blockquote>
+<p>加号<code>+</code>表示字符串的链接，星号<code>*n</code>表示当前字符串复制n遍</p>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251106130032356.png" alt="image-20251106130032356" style="zoom:80%;" /></center>
+
+<p>Python 使用反斜杠 <code>\</code>转义特殊字符，如果你不想让反斜杠发生转义，可以在字符串前面添加一个 <code>r</code>，表示原始字符串：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ru</span><span class="se">\n</span><span class="s1">oob&#39;</span><span class="p">)</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">Ru</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">oob</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Ru\noob&#39;</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">Ru</span>\<span class="n">noob</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="o">&gt;&gt;&gt;</span>
+</span></code></pre></div>
+<p>另外，反斜杠()可以作为续行符，表示下一行是上一行的延续。也可以使用 <strong>"""..."""</strong> 或者 <strong>'''...'''</strong> 跨越多行。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">total</span> <span class="o">=</span> <span class="n">item_one</span> <span class="o">+</span> \
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        <span class="n">item_two</span> <span class="o">+</span> \
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>        <span class="n">item_three</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>与 C 字符串不同的是，Python 字符串不能被改变。向一个索引位置赋值，比如 <code>word[0] = 'm'</code> 会导致错误。</p>
+</div>
+<h4 id="_19">转义字符<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>在需要在字符中使用特殊字符时，python 用反斜杠 <code>\</code> 转义字符。如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">转义字符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(在行尾时)</td>
+<td style="text-align: left;">续行符</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("line1 \</code><br /><code>... line2 \</code><br /><code>... line3")</code><br /><code>line1 line2 line3</code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\</td>
+<td style="text-align: left;">反斜杠符号</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\\")</code><br /><code>\</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\'</td>
+<td style="text-align: left;">单引号</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print('\'')</code><br /><code>'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\"</td>
+<td style="text-align: left;">双引号</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\"")</code><br /><code>"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\a</td>
+<td style="text-align: left;">响铃</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\a")</code><br />执行后电脑有响声。</td>
+</tr>
+<tr>
+<td style="text-align: left;">\b</td>
+<td style="text-align: left;">退格(Backspace)</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("Hello \b World!")</code><br /><code>Hello World!</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\000</td>
+<td style="text-align: left;">空</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\000")</code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\n</td>
+<td style="text-align: left;">换行</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\n")</code><br /><code></code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\v</td>
+<td style="text-align: left;">纵向制表符</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("Hello \v World!")</code><br /><code>Hello</code><br /><code>World!</code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\t</td>
+<td style="text-align: left;">横向制表符</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("Hello \t World!")</code><br /><code>Hello    World!</code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\r</td>
+<td style="text-align: left;">回车，将 <strong>\r</strong> 后面的内容移到字符串开头，并逐一替换开头部分的字符，直至将 <strong>\r</strong> 后面的内容完全替换完成。</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("Hello\rWorld!")</code><br /><code>World!</code><br /><code>&gt;&gt;&gt; print('google runoob taobao\r123456')</code><br /><code>123456 runoob taobao</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\f</td>
+<td style="text-align: left;">换页</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("Hello \f World!")</code><br /><code>Hello</code><br /><code>World!</code><br /><code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\yyy</td>
+<td style="text-align: left;">八进制数，y 代表 0~7 的字符，例如：\012 代表换行。</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\110\145\154\154\157\40\127\157\162\154\144\41")</code><br /><code>Hello World!</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\xyy</td>
+<td style="text-align: left;">十六进制数，以 \x 开头，y 代表的字符，例如：\x0a 代表换行</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; print("\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64\x21")</code><br /><code>Hello World!</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">\other</td>
+<td style="text-align: left;">其它的字符以普通格式输出</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<details class="example">
+<summary>Example</summary>
+<p>使用<code>\r</code>实现百分比进度条：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span> <span class="c1"># 添加进度条图形和百分比</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">bar</span> <span class="o">=</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r</span><span class="si">{</span><span class="n">bar</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nb">print</span><span class="p">()</span>
+</span></code></pre></div></p>
+</details>
+<hr />
+<h3 id="bool">bool(布尔类型)<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h3>
+<p>布尔类型即 True 或 False。</p>
+<p>在 Python 中，True 和 False 都是关键字，表示布尔值。</p>
+<p>布尔类型可以用来控制程序的流程，比如判断某个条件是否成立，或者在某个条件满足时执行某段代码。</p>
+<p>布尔类型特点：</p>
+<ul>
+<li>布尔类型只有两个值：True 和 False。</li>
+<li>bool 是 int 的子类，因此布尔值可以被看作整数来使用，其中 True 等价于 1。</li>
+<li>布尔类型可以和其他数据类型进行比较，比如数字、字符串等。在比较时，Python 会将 True 视为 1，False 视为 0。</li>
+<li>布尔类型可以和逻辑运算符一起使用，包括 and、or 和 not。这些运算符可以用来组合多个布尔表达式，生成一个新的布尔值。</li>
+<li>布尔类型也可以被转换成其他数据类型，比如整数、浮点数和字符串。在转换时，True 会被转换成 1，False 会被转换成 0。</li>
+<li>可以使用 <code>bool()</code> 函数将其他类型的值转换为布尔值。以下值在转换为布尔值时为 <code>False</code>：<code>None</code>、<code>False</code>、零 (<code>0</code>、<code>0.0</code>、<code>0j</code>)、空序列（如 <code>''</code>、<code>()</code>、<code>[]</code>）和空映射（如 <code>{}</code>）。其他所有值转换为布尔值时均为 <code>True</code>。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在 Python 中，所有非零的数字和非空的字符串、列表、元组等数据类型都被视为 True，只有 <strong>0、空字符串、空列表、空元组</strong>等被视为 False。因此，在进行布尔类型转换时，需要注意数据类型的真假性。</p>
+</div>
+<hr />
+<h3 id="list">List(列表)<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<p>列表可以完成大多数集合类的数据结构实现。列表中元素的类型可以不相同，它支持数字，字符串甚至可以包含列表（所谓嵌套）。</p>
+<p>列表是写在方括号 <strong>[]</strong> 之间、用逗号分隔开的元素列表。</p>
+<p>和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。</p>
+<p>列表截取的语法格式如下：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">变量</span><span class="p">[</span><span class="n">头下标</span><span class="p">:</span><span class="n">尾下标</span><span class="p">]</span>
+</span></code></pre></div>
+<p>列表的索引与字符串的索引类似，见下图</p>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/list_slicing1_new1.png" alt="img" style="zoom:80%;" /></center>
+
+<p>加号<code>+</code>是列表连接运算符，星号<code>*</code>是重复操作，这里与字符串类似。</p>
+<details class="example">
+<summary>Example</summary>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span></code></pre></div>
+<p>list = [ 'abcd', 786 , 2.23, 'runoob', 70.2 ]  # 定义一个列表
+tinylist = [123, 'runoob']</p>
+<p>print (list)            # 打印整个列表
+print (list[0])         # 打印列表的第一个元素
+print (list[1:3])       # 打印列表第二到第四个元素（不包含第四个元素）
+print (list[2:])        # 打印列表从第三个元素开始到末尾
+print (tinylist * 2)    # 打印tinylist列表两次
+print (list + tinylist)  # 打印两个列表拼接在一起的结果
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>`output`
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>```python
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>[&#39;abcd&#39;, 786, 2.23, &#39;runoob&#39;, 70.2]
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>abcd
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>[786, 2.23]
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>[2.23, &#39;runoob&#39;, 70.2]
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>[123, &#39;runoob&#39;, 123, &#39;runoob&#39;]
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>[&#39;abcd&#39;, 786, 2.23, &#39;runoob&#39;, 70.2, 123, &#39;runoob&#39;]
+</span></code></pre></div></p>
+</details>
+<p>与字符串不一样的是，列表中的元素是可以改变的。</p>
+<p>List还内置了很多方法，例如append(),pop()等等，这在后面还会提到</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1.列表写在方括号之间，元素用逗号隔开
+2.和字符串一样，列表可以被索引和切片
+3.列表可以使用<code>+</code>操作符进行连接
+4.列表中的元素是可以改变的</p>
+</div>
+<p>Python 列表截取可以接收第三个参数，参数作用是截取的步长，以下实例在索引 1 到索引 4 的位置并设置为步长为 2（间隔一个位置）来截取字符串：</p>
+<center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/py-dict-1.png" alt="img" style="zoom:80%;" /></center>
+
+<p>如果第三个参数为负数表示逆向读取，以下实例用于翻转字符串</p>
+<details class="example">
+<summary>Example</summary>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">reverseWords</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span> 
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    <span class="c1"># 通过空格将字符串分隔符，把各个单词分隔为列表</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    <span class="n">inputWords</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> 
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="c1"># 翻转字符串</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>    <span class="c1"># 假设列表 list = [1,2,3,4],  </span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    <span class="c1"># list[0]=1, list[1]=2 ，而 -1 表示最后一个元素 list[-1]=4 ( 与 list[3]=4 一样) </span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>    <span class="c1"># inputWords[-1::-1] 有三个参数</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    <span class="c1"># 第一个参数 -1 表示最后一个元素</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>    <span class="c1"># 第二个参数为空，表示移动到列表末尾</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>    <span class="c1"># 第三个参数为步长，-1 表示逆向</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>    <span class="n">inputWords</span><span class="o">=</span><span class="n">inputWords</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>    <span class="c1"># 重新组合字符串</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>    <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputWords</span><span class="p">)</span> 
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>    <span class="k">return</span> <span class="n">output</span> 
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span> 
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>    <span class="nb">input</span> <span class="o">=</span> <span class="s1">&#39;I like runoob&#39;</span>
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>    <span class="n">rw</span> <span class="o">=</span> <span class="n">reverseWords</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> 
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">rw</span><span class="p">)</span>
+</span></code></pre></div>
+<code>output</code>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">runoob</span> <span class="n">like</span> <span class="n">I</span>
+</span></code></pre></div></p>
+</details>
+<hr />
+<h3 id="tuple">Tuple(元组)<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h3>
+<p>元组（tuple）与列表类似，不同之处在于元组的元素不能修改。元组写在小括号 <strong>()</strong> 里，元素之间用逗号隔开。</p>
+<ul>
+<li>
+<p>元组中的元素类型也可以不相同</p>
+</li>
+<li>
+<p>元组与字符串类似，可以被索引且下标索引从0开始，-1 为从末尾开始的位置。也可以进行截取</p>
+</li>
+<li>虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表。</li>
+<li>构造包含 0 个或 1 个元素的元组比较特殊，所以有一些额外的语法规则，如果只有一个元素的元组，需要再元素后添加逗号，用于区分元组和普通的值。</li>
+</ul>
+<hr />
+<h3 id="set">Set(集合)<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<p>Python 中的集合（Set）是一种无序、可变的数据类型，用于存储唯一的元素。</p>
+<p>集合中的元素不会重复，并且可以进行交集、并集、差集等常见的集合操作。</p>
+<p>在 Python 中，集合使用大括号 <strong>{}</strong> 表示，元素之间用逗号 <strong>,</strong> 分隔。</p>
+<p>另外，也可以使用 <strong>set()</strong> 函数创建集合。</p>
+<p><strong>注意：</strong>创建一个空集合必须用 <strong>set()</strong> 而不是 <strong>{ }</strong>，因为 <strong>{ }</strong> 是用来创建一个空字典。</p>
+<p>创建格式：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">parame</span> <span class="o">=</span> <span class="p">{</span><span class="n">value01</span><span class="p">,</span><span class="n">value02</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">或者</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
+<details class="example">
+<summary>Example</summary>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">,</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Zhihu&#39;</span><span class="p">,</span> <span class="s1">&#39;Baidu&#39;</span><span class="p">}</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>   <span class="c1"># 输出集合，重复的元素被自动去掉</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># 成员测试</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="k">if</span> <span class="s1">&#39;Runoob&#39;</span> <span class="ow">in</span> <span class="n">sites</span> <span class="p">:</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Runoob 在集合中&#39;</span><span class="p">)</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="k">else</span> <span class="p">:</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Runoob 不在集合中&#39;</span><span class="p">)</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="err">```</span><span class="n">python</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="c1"># set可以进行集合运算</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">)</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;alacazam&#39;</span><span class="p">)</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的差集</span>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的并集</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的交集</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 中不同时存在的元素</span>
+</span></code></pre></div>
+</details>
+<p>​    <code>output</code>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span><span class="s1">&#39;Baidu&#39;</span><span class="p">,</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Zhihu&#39;</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">}</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">Runoob</span> <span class="n">在集合中</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">}</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="dictionary">Dictionary(字典)<a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h3>
+<p>列表式有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典中的元素是通过键来存取的，而不是通过偏移存取(有点像函数里的一一对应关系)。</p>
+<p>字典是一种映射类型，用<code>{}</code>标识，是一个无序的<strong>键(Key):值(Value)</strong>的集合。键(Key)必须是不可变类型，同一个字典中，键必须是唯一的。</p>
+<details class="example">
+<summary>Example</summary>
+<p><center><img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/image-20251108003352258.png" alt="image-20251108003352258" style="zoom:67%;" /></center></p>
+</details>
+<p>构造函数dict()可以直接从键值对序列中构建字典如下：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Taobao&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="p">{</span><span class="s1">&#39;Runoob&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">36</span><span class="p">}</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Runoob</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Google</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Taobao</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">{</span><span class="s1">&#39;Runoob&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</span></code></pre></div>
+<p>注意：</p>
+<ol>
+<li>字典是一种映射类型，它的元素是键值对</li>
+<li>字典的关键字必须为不可变类型，且不能重复</li>
+<li>创建空字典使用<code>{}</code></li>
+</ol>
+<hr />
+<h3 id="bytes">bytes类型<a class="headerlink" href="#bytes" title="Permanent link">&para;</a></h3>
+<p>在Python3中，bytes类型表示的是不可变的二进制序列。与字符串类型不同的是，该类型中的元素是整数值(0-255之间)，而不是Unicode字符。通常用于处理二进制数据。</p>
+<p>可以用b前缀标识bytes对象。</p>
+<p>此外，也可以使用bytes()函数将其他类型的对象转换为bytes类型。该函数的第一个参数是要转换的对象，第二个参数是编码方式，如果省略第二个参数，则默认使用UTF-8编码。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>与字符串类型类似，bytes 类型也支持许多操作和方法，如切片、拼接、查找、替换等等。同时，由于 bytes 类型是不可变的，因此在进行修改操作时需要创建一个新的 bytes 对象。</p>
+<p>需要注意的是，bytes 类型中的元素是整数值，因此在进行比较操作时需要使用相应的整数值。</p>
+<hr />
+<h2 id="python3_2">Python3的数据类型转换<a class="headerlink" href="#python3_2" title="Permanent link">&para;</a></h2>
+<p>Python3的数据类型转换分为两种</p>
+<ul>
+<li>隐式类型转换——自动完成</li>
+<li>显示类型转换——需要使用类型函数来转换</li>
+</ul>
+<h3 id="_20">隐式类型转换<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Python会在运算的时候转换成运算过程中最高的数据类型，如整数和浮点数相加，得到的结果是浮点数。</li>
+<li>数字型和字符串型运算结果会报错，无法进行隐式转换。</li>
+</ul>
+<h3 id="_21">显示类型转换<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>使用<code>int(),float(),str()</code>等预定义函数来执行显示类型转换</p>
+<p>例如</p>
+<details class="example">
+<summary>Example</summary>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">num_int</span> <span class="o">=</span> <span class="mi">123</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">num_str</span> <span class="o">=</span> <span class="s2">&quot;456&quot;</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_int 数据类型为:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">num_int</span><span class="p">))</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;类型转换前，num_str 数据类型为:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">num_str</span><span class="p">))</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="n">num_str</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span>    <span class="c1"># 强制转换为整型</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;类型转换后，num_str 数据类型为:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">num_str</span><span class="p">))</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="n">num_sum</span> <span class="o">=</span> <span class="n">num_int</span> <span class="o">+</span> <span class="n">num_str</span>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_int 与 num_str 相加结果为:&quot;</span><span class="p">,</span><span class="n">num_sum</span><span class="p">)</span>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sum 数据类型为:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">num_sum</span><span class="p">))</span>
+</span></code></pre></div>
+<code>output</code>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">num_int</span> <span class="n">数据类型为</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="n">类型转换前</span><span class="err">，</span><span class="n">num_str</span> <span class="n">数据类型为</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="n">类型转换后</span><span class="err">，</span><span class="n">num_str</span> <span class="n">数据类型为</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">num_int</span> <span class="n">与</span> <span class="n">num_str</span> <span class="n">相加结果为</span><span class="p">:</span> <span class="mi">579</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="nb">sum</span> <span class="n">数据类型为</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+</span></code></pre></div></p>
+</details>
+<p>以下几个内置的函数可以执行数据类型之间的转换。这些函数返回一个新的对象，表示转换的值，因此可以用于赋值。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">[int(x <a href="https://www.runoob.com/python3/python-func-int.html">,base])</a></td>
+<td style="text-align: left;">将x转换为一个整数</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-float.html">float(x)</a></td>
+<td style="text-align: left;">将x转换到一个浮点数</td>
+</tr>
+<tr>
+<td style="text-align: left;">[complex(real <a href="https://www.runoob.com/python3/python-func-complex.html">,imag])</a></td>
+<td style="text-align: left;">创建一个复数</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-str.html">str(x)</a></td>
+<td style="text-align: left;">将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-repr.html">repr(x)</a></td>
+<td style="text-align: left;">将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-eval.html">eval(str)</a></td>
+<td style="text-align: left;">用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-func-tuple.html">tuple(s)</a></td>
+<td style="text-align: left;">将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python3-att-list-list.html">list(s)</a></td>
+<td style="text-align: left;">将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-set.html">set(s)</a></td>
+<td style="text-align: left;">转换为可变集合</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-dict.html">dict(d)</a></td>
+<td style="text-align: left;">创建一个字典。d 必须是一个 (key, value)元组序列。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-frozenset.html">frozenset(s)</a></td>
+<td style="text-align: left;">转换为不可变集合</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-chr.html">chr(x)</a></td>
+<td style="text-align: left;">将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-ord.html">ord(x)</a></td>
+<td style="text-align: left;">将一个字符转换为它的整数值</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-hex.html">hex(x)</a></td>
+<td style="text-align: left;">将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.runoob.com/python3/python-func-oct.html">oct(x)</a></td>
+<td style="text-align: left;">将一个整数转换为一个八进制字符串</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>表格来源于 https://www.runoob.com/python3/python3-type-conversion.html</p>
+</blockquote>
+<hr />
+<h2 id="python3_3">Python3解释器<a class="headerlink" href="#python3_3" title="Permanent link">&para;</a></h2>
+<p>略</p>
+<hr />
+<h2 id="python3_4">Python3运算符<a class="headerlink" href="#python3_4" title="Permanent link">&para;</a></h2>
+<p>Python3支持以下类型的运算符：</p>
+<ul>
+<li>算术运算符</li>
+<li>关系(比较)运算符</li>
+<li>赋值运算符</li>
+<li>逻辑运算符</li>
+<li>位运算符</li>
+<li>成员运算符</li>
+<li>身份运算符</li>
+<li>运算符优先级</li>
+</ul>
+<hr />
+<h3 id="_22">算术运算符<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>假设变量<code>a=10</code>，变量<code>b=21</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">加 - 两个对象相加</td>
+<td style="text-align: left;">a + b 输出结果 31</td>
+</tr>
+<tr>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">减 - 得到负数或是一个数减去另一个数</td>
+<td style="text-align: left;">a - b 输出结果 -11</td>
+</tr>
+<tr>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">乘 - 两个数相乘或是返回一个被重复若干次的字符串</td>
+<td style="text-align: left;">a * b 输出结果 210</td>
+</tr>
+<tr>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">除 - x 除以 y</td>
+<td style="text-align: left;">b / a 输出结果 2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">取模 - 返回除法的余数</td>
+<td style="text-align: left;">b % a 输出结果 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">**</td>
+<td style="text-align: left;">幂 - 返回x的y次幂</td>
+<td style="text-align: left;">a**b 为10的21次方</td>
+</tr>
+<tr>
+<td style="text-align: left;">//</td>
+<td style="text-align: left;">取整除 - 往小的方向取整数</td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; 9//2</code><br /><code>4</code><br /><code>&gt;&gt;&gt; -9//2</code><br /><code>-5</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_23">比较运算符<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>假设变量<code>a=10</code>，变量<code>b=20</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">等于 - 比较对象是否相等</td>
+<td style="text-align: left;">(a == b) 返回 False。</td>
+</tr>
+<tr>
+<td style="text-align: left;">!=</td>
+<td style="text-align: left;">不等于 - 比较两个对象是否不相等</td>
+<td style="text-align: left;">(a != b) 返回 True。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: left;">大于 - 返回x是否大于y</td>
+<td style="text-align: left;">(a &gt; b) 返回 False。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">小于 - 返回x是否小于y。所有比较运算符返回1表示真，返回0表示假。<br />这分别与特殊的变量True和False等价。注意，这些变量名的大写。</td>
+<td style="text-align: left;">(a &lt; b) 返回 True。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: left;">大于等于 - 返回x是否大于等于y。</td>
+<td style="text-align: left;">(a &gt;= b) 返回 False。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: left;">小于等于 - 返回x是否小于等于y。</td>
+<td style="text-align: left;">(a &lt;= b) 返回 True。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_24">赋值运算符<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>假设变量<code>a=10</code>，变量<code>b=20</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">=</td>
+<td style="text-align: left;">简单的赋值运算符</td>
+<td style="text-align: left;">c = a + b 将 a + b 的运算结果赋值为 c</td>
+</tr>
+<tr>
+<td style="text-align: left;">+=</td>
+<td style="text-align: left;">加法赋值运算符</td>
+<td style="text-align: left;">c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td style="text-align: left;">-=</td>
+<td style="text-align: left;">减法赋值运算符</td>
+<td style="text-align: left;">c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td style="text-align: left;">*=</td>
+<td style="text-align: left;">乘法赋值运算符</td>
+<td style="text-align: left;">c *= a 等效于 c = c * a</td>
+</tr>
+<tr>
+<td style="text-align: left;">/=</td>
+<td style="text-align: left;">除法赋值运算符</td>
+<td style="text-align: left;">c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td style="text-align: left;">%=</td>
+<td style="text-align: left;">取模赋值运算符</td>
+<td style="text-align: left;">c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td style="text-align: left;">**=</td>
+<td style="text-align: left;">幂赋值运算符</td>
+<td style="text-align: left;">c **= a 等效于 c = c ** a</td>
+</tr>
+<tr>
+<td style="text-align: left;">//=</td>
+<td style="text-align: left;">取整除赋值运算符</td>
+<td style="text-align: left;">c //= a 等效于 c = c // a</td>
+</tr>
+<tr>
+<td style="text-align: left;">:=</td>
+<td style="text-align: left;">海象运算符，这个运算符的主要目的是<br />在表达式中同时进行赋值和返回赋值的值。<br /><strong>Python3.8 版本新增运算符</strong>。</td>
+<td style="text-align: left;">在这个示例中，<br />赋值表达式可以避免调用 len() 两次:<br /><code>if (n := len(a)) &gt; 10:</code><br/> <code>print(f"List is({n} elements, expected &lt;= 10)")</code></td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>Note</summary>
+<p>“海象运算符”，它使用<code>:=</code>符号。使用海象运算符可以在一些情况下简化代码，尤其是在需要在表达式中使用赋值结果的情况下，这对于简化循环条件或表达式中的重复计算很有用。例如：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># 传统写法</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="c1"># 使用海象运算符</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h3 id="_25">位运算符<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>按位运算符是把数字看做二进制来进行计算的，按位运算法则如下：</p>
+<p>下表中变量a为60，b为13二进制格式</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">0011</span> <span class="mi">1100</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">0000</span> <span class="mi">1101</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">&amp;</td>
+<td style="text-align: left;">按位与运算符：参与运算的两个值,<br />如果两个相应位都为1,则该位的结果为1,否则为0</td>
+<td style="text-align: left;">(a &amp; b) 输出结果 12 ，<br />二进制解释： 0000 1100</td>
+</tr>
+<tr>
+<td style="text-align: left;">|</td>
+<td style="text-align: left;">按位或运算符：只要对应的二个二进位有一个为1时，<br />结果位就为1。</td>
+<td style="text-align: left;">(a | b) 输出结果 61 ，<br />二进制解释： 0011 1101</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">按位异或运算符：当两对应的二进位相异时，结果为1</td>
+<td style="text-align: left;">(a ^ b) 输出结果 49 ，<br />二进制解释： 0011 0001</td>
+</tr>
+<tr>
+<td style="text-align: left;">~</td>
+<td style="text-align: left;">按位取反运算符：对数据的每个二进制位取反,<br />即把1变为0,把0变为1。<strong>~x</strong> 类似于 <strong>-x-1</strong></td>
+<td style="text-align: left;">(~a ) 输出结果 -61 ，<br />二进制解释： 1100 0011， <br />在一个有符号二进制数的补码形式。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;&lt;</td>
+<td style="text-align: left;">左移动运算符：运算数的各二进位全部左移若干位，<br />由"&lt;&lt;"右边的数指定移动的位数，高位丢弃，低位补0。乘<span class="arithmatex">\(2^n\)</span></td>
+<td style="text-align: left;">a &lt;&lt; 2 输出结果 240 ，<br />二进制解释： 1111 0000</td>
+</tr>
+<tr>
+<td style="text-align: left;">&gt;&gt;</td>
+<td style="text-align: left;">右移动运算符：运算数的各二进位全部右移若干位，<br />"&gt;&gt;"右边的数指定移动的位数，除<span class="arithmatex">\(2^n\)</span></td>
+<td style="text-align: left;">a &gt;&gt; 2 输出结果 15 ，<br />二进制解释： 0000 1111</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_26">逻辑运算符<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>Python语言支持逻辑运算符，以下假设变量 a 为 10, b为 20:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">逻辑表达式</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">and</td>
+<td style="text-align: left;">x and y</td>
+<td style="text-align: left;">布尔"与" - 如果 x 为 False，x and y 返回 x 的值，否则返回 y 的计算值。</td>
+<td style="text-align: left;">(a and b) 返回 20。</td>
+</tr>
+<tr>
+<td style="text-align: left;">or</td>
+<td style="text-align: left;">x or y</td>
+<td style="text-align: left;">布尔"或" - 如果 x 是 True，它返回 x 的值，否则它返回 y 的计算值。</td>
+<td style="text-align: left;">(a or b) 返回 10。</td>
+</tr>
+<tr>
+<td style="text-align: left;">not</td>
+<td style="text-align: left;">not x</td>
+<td style="text-align: left;">布尔"非" - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+<td style="text-align: left;">not(a and b) 返回 False</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_27">成员运算符<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>除了上面的一些运算符之外，Python还支持成员运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">in</td>
+<td style="text-align: left;">如果在指定的序列中找到值返回 True，否则返回 False。</td>
+<td style="text-align: left;">x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+</tr>
+<tr>
+<td style="text-align: left;">not in</td>
+<td style="text-align: left;">如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
+<td style="text-align: left;">x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+</tr>
+</tbody>
+</table>
+<details class="example">
+<summary>Example</summary>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="ch">#!/usr/bin/python3</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">):</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;1 - 变量 a 在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;1 - 变量 a 不在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="k">if</span> <span class="p">(</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">):</span>
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;2 - 变量 b 不在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;2 - 变量 b 在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="c1"># 修改变量 a 的值</span>
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">):</span>
+</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;3 - 变量 a 在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-37-18"><a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;3 - 变量 a 不在给定的列表中 list 中&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>output</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="mi">1</span> <span class="o">-</span> <span class="n">变量</span> <span class="n">a</span> <span class="n">不在给定的列表中</span> <span class="nb">list</span> <span class="n">中</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="mi">2</span> <span class="o">-</span> <span class="n">变量</span> <span class="n">b</span> <span class="n">不在给定的列表中</span> <span class="nb">list</span> <span class="n">中</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="mi">3</span> <span class="o">-</span> <span class="n">变量</span> <span class="n">a</span> <span class="n">在给定的列表中</span> <span class="nb">list</span> <span class="n">中</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h3 id="_28">身份运算符<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>身份运算符用于比较两个对象的存储单元</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">is</td>
+<td style="text-align: left;">is 是判断两个标识符是不是引用自一个对象</td>
+<td style="text-align: left;"><strong>x is y</strong>, 类似 <strong>id(x) == id(y)</strong> , <br />如果引用的是同一个对象则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align: left;">is not</td>
+<td style="text-align: left;">is not 是判断两个标识符是不是引用自不同对象</td>
+<td style="text-align: left;"><strong>x is not y</strong> ， 类似 <strong>id(x) != id(y)</strong>。<br />如果引用的不是同一个对象则返回结果 True，否则返回 False。</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>Note</summary>
+<p><strong>is 与 == 区别：</strong>is 用于判断两个变量引用对象是否为同一个， == 用于判断引用变量的值是否相等。
+<div class="language-python highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="o">&gt;&gt;&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="ow">is</span> <span class="n">a</span> 
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="kc">True</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">a</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="kc">True</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="ow">is</span> <span class="n">a</span>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="kc">False</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">a</span>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="kc">True</span>
+</span></code></pre></div></p>
+</details>
+<h3 id="_29">运算符优先级<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>(expressions...)</code>,<code>[expressions...]</code>, <code>{key: value...}</code>, <code>{expressions...}</code></td>
+<td style="text-align: left;">圆括号的表达式</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x[index]</code>, <code>x[index:index]</code>, <code>x(arguments...)</code>, <code>x.attribute</code></td>
+<td style="text-align: left;">读取，切片，调用，属性引用</td>
+</tr>
+<tr>
+<td style="text-align: left;">await x</td>
+<td style="text-align: left;">await 表达式</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>**</code></td>
+<td style="text-align: left;">乘方(指数)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>+x</code>, <code>-x</code>, <code>~x</code></td>
+<td style="text-align: left;">正，负，按位非 NOT</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>*</code>, <code>@</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+<td style="text-align: left;">乘，矩阵乘，除，整除，取余</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>+</code>, <code>-</code></td>
+<td style="text-align: left;">加和减</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;&lt;</code>, <code>&gt;&gt;</code></td>
+<td style="text-align: left;">移位</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: left;">按位与 AND</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: left;">按位异或 XOR</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: left;">按位或 OR</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>in,not in, is,is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==</code></td>
+<td style="text-align: left;">比较运算，包括成员检测和标识号检测</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>not x</code></td>
+<td style="text-align: left;">逻辑非 NOT</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>and</code></td>
+<td style="text-align: left;">逻辑与 AND</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>or</code></td>
+<td style="text-align: left;">逻辑或 OR</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>if -- else</code></td>
+<td style="text-align: left;">条件表达式</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lambda</code></td>
+<td style="text-align: left;">lambda 表达式</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>:=</code></td>
+<td style="text-align: left;">赋值表达式</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>注意：</strong>Python3 已不支持 <strong>&lt;&gt;</strong> <em>运算符，可以使用</em> <strong>!=</strong>代替。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/%E7%A0%940%E5%B9%B2%E4%BA%9B%E5%95%A5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 研0干些啥">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                研0干些啥
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Python%20%26%20PyAnsys/" class="md-footer__link md-footer__link--next" aria-label="下一页: Python &amp;amp; PyAnsys">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Python &amp; PyAnsys
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["search.highlight", "search.suggest", "toc.follow", "search.share", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.footer", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../../extra_javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../../../extra_javascript/hide_right_bar.js"></script>
+      
+    
+  </body>
+</html>
