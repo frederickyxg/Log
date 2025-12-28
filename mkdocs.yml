@@ -6,7 +6,7 @@ site_description: Lazy
 repo_url: https://frederickyxg.github.io/Log/
 #导航树设置
 nav:
-  - HOME: "index.html"
+  - HOME: "index.md"
   - NBU-NOTES: 
     - "NBU-NOTES/index.md"
     - "NBU-NOTES/模拟电子技术/index.md"
@@ -102,11 +102,7 @@ markdown_extensions:
       
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
@@ -123,12 +119,7 @@ markdown_extensions:
 extra_javascript:
   - extra_javascripts/mathjax.js # 公式输入支持
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js
   - extra_javascript/hide_right_bar.js
-
-# 自定义CSS
-extra_css:
-  - extra_css/custom_theme.css
 
 # 主题配置
 theme:
@@ -149,7 +140,7 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: #2c3e50
+      primary: light blue
       toggle:
         icon: material/brightness-1
         name: Switch to dark mode
@@ -157,14 +148,14 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: #64b5f6
+      primary: black
       toggle:
         icon: material/brightness-3
         name: Switch to light mode
   # 字体
   font:
-    text: 'Segoe UI'
-    code: 'Roboto Mono'
+    text: Roboto
+    code: Roboto Mono
   # 图标设置
   icon:
     admonition:
