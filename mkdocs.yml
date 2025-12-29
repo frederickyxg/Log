@@ -6,7 +6,7 @@ site_description: Lazy
 repo_url: https://frederickyxg.github.io/Log/
 #导航树设置
 nav:
-  - HOME: "index.md"
+  - HOME: "index.html"
   - NBU-NOTES: 
     - "NBU-NOTES/index.md"
     - "NBU-NOTES/模拟电子技术/index.md"

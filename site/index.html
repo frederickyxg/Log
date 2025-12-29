@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 
+    通信工程本科、电磁场与微波技术准硕士博客主页
+    设计风格：科技风格，模仿 https://www.zhouyi.run/#/index
+    技术栈：HTML5 + CSS3 + JavaScript
+    功能特性：
+    - 明亮/暗黑主题切换
+    - 响应式设计
+    - 平滑滚动
+    - 导航栏固定
+    - 滚动到顶部
+    - 图片懒加载
+    - 主题本地存储
+    -->
+<head>
+    <!-- 基础元信息 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frederick's Logs</title>
+    
+    <!-- 网站图标 -->
+    <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon">
+    
+    <!-- 字体引入：Roboto 字体族，用于正文和代码 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 图标库 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* CSS 变量定义 - 明亮主题 */
+        :root {
+            /* 背景色变量 */
+            --bg-primary: #ffffff;       /* 主背景色，用于页面主体背景 */
+            --bg-secondary: #f8f9fa;     /* 次要背景色，用于卡片、区块背景 */
+            --bg-tertiary: #e9ecef;      /* 三级背景色，用于边框、分隔线 */
+            
+            /* 文本颜色变量 */
+            --text-primary: #212529;     /* 主文本色，用于标题、正文 */
+            --text-secondary: #6c757d;   /* 次要文本色，用于副标题、描述 */
+            --text-muted: #adb5bd;       /* 弱化文本色，用于元数据、辅助文字 */
+            
+            /* 边框和阴影变量 */
+            --border-color: #dee2e6;     /* 边框色，用于卡片边框、分隔线 */
+            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* 小阴影 */
+            --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* 中阴影 */
+            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175); /* 大阴影 */
+            
+            /* 强调色变量 */
+            --accent-primary: #007bff;   /* 主强调色，用于链接、按钮、高亮 */
+            --accent-secondary: #0056b3; /* 次要强调色，用于悬停效果 */
+            
+            /* 渐变背景变量 */
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Hero 区域渐变 */
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* 卡片、按钮渐变 */
+            
+            /* 组件特定变量 */
+            --card-bg: #ffffff;          /* 卡片背景色 */
+            --nav-bg: rgba(255, 255, 255, 0.95); /* 导航栏背景色，带透明度 */
+            --nav-border: rgba(0, 0, 0, 0.1); /* 导航栏边框色 */
+            --code-bg: #f8f9fa;          /* 代码块背景色 */
+            --code-text: #212529;        /* 代码文本色 */
+        }
+
+        /* 深色主题变量定义 */
+        [data-theme="dark"] {
+            /* 背景色变量 - 深色主题 */
+            --bg-primary: #1a1a1a;       /* 主背景色，深灰色 */
+            --bg-secondary: #2d2d2d;     /* 次要背景色，中灰色 */
+            --bg-tertiary: #404040;      /* 三级背景色，浅灰色 */
+            
+            /* 文本颜色变量 - 深色主题 */
+            --text-primary: #ffffff;     /* 主文本色，白色 */
+            --text-secondary: #b0b0b0;   /* 次要文本色，浅灰色 */
+            --text-muted: #808080;       /* 弱化文本色，深灰色 */
+            
+            /* 边框和阴影变量 - 深色主题 */
+            --border-color: #404040;     /* 边框色，与背景区分 */
+            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3); /* 小阴影，更明显 */
+            --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.4); /* 中阴影，更明显 */
+            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.5); /* 大阴影，更明显 */
+            
+            /* 强调色变量 - 深色主题 */
+            --accent-primary: #00bfff;   /* 主强调色，亮蓝色 */
+            --accent-secondary: #0099cc; /* 次要强调色，深蓝色 */
+            
+            /* 渐变背景变量 - 深色主题 */
+            --gradient-primary: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* 深色 Hero 渐变 */
+            --gradient-secondary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); /* 深色卡片渐变 */
+            
+            /* 组件特定变量 - 深色主题 */
+            --card-bg: #2d2d2d;          /* 卡片背景色，与二级背景一致 */
+            --nav-bg: rgba(26, 26, 26, 0.95); /* 导航栏背景色，深灰色带透明度 */
+            --nav-border: rgba(255, 255, 255, 0.1); /* 导航栏边框色，白色带透明度 */
+            --code-bg: #2d2d2d;          /* 代码块背景色，与卡片背景一致 */
+            --code-text: #ffffff;        /* 代码文本色，白色 */
+        }
+
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏样式 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--nav-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary);
+            color: var(--accent-primary);
+        }
+
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 0 4rem;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-profession {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 关于我部分 */
+        .about {
+            padding: 6rem 0;
+            background-color: var(--bg-primary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-primary);
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 博客分类部分 */
+        .blog-categories {
+            padding: 6rem 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .blog-categories h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+
+        .category-card i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .category-link:hover {
+            gap: 0.5rem;
+        }
+
+        .category-link i {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* 最近文章部分 */
+        .recent-posts {
+            padding: 6rem 0;
+            background-color: var(--bg-primary);
+        }
+
+        .recent-posts h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .post-image {
+            height: 200px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .post-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .post-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .post-link:hover {
+            gap: 0.5rem;
+        }
+
+        .post-link i {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .post-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 滚动到顶部按钮 */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--nav-bg);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-md);
+                border-top: 1px solid var(--nav-border);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-text h2,
+            .blog-categories h2,
+            .recent-posts h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* 代码块样式 */
+        pre, code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            border-radius: 6px;
+        }
+
+        code {
+            padding: 0.2rem 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        pre code {
+            padding: 0;
+            background: none;
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                Frederick's Logs
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#categories">博客分类</a></li>
+                <li><a href="#posts">最近文章</a></li>
+                <li><a href="NBU-NOTES/">NBU笔记</a></li>
+                <li><a href="SEU-NOTES/PRE/研0干些啥/研0干些啥/">SEU笔记</a></li>
+                <li><a href="freewriting/团建/团建小游戏/">随笔</a></li>
+            </ul>
+            
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Frederick's Logs</h1>
+                <p class="hero-profession">通信工程本科 | 电磁场与微波技术准硕士</p>
+                <p class="hero-subtitle">探索通信世界的无限可能，记录学习与研究的点点滴滴</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">了解更多</a>
+                    <a href="#categories" class="btn btn-secondary">浏览博客</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>关于我</h2>
+                    <p>你好！我是 Frederick，一名通信工程本科毕业生，即将开始电磁场与微波技术方向的硕士研究生生涯。我对通信技术、电磁场理论和微波工程充满热情，致力于探索这些领域的前沿知识。</p>
+                    <p>在本科阶段，我系统学习了通信原理、信号与系统、电磁场与电磁波等专业课程，并参与了多个相关项目。即将进入硕士阶段，我将专注于天线设计、微波电路和无线通信系统的研究。</p>
+                    <p>这个博客是我记录学习过程、分享研究成果和技术心得的平台。我希望通过分享自己的知识和经验，与更多志同道合的人交流，共同进步。</p>
+                    <div class="skills">
+                        <h3>技能与专长</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">电磁场理论</div>
+                            <div class="skill-item">微波技术</div>
+                            <div class="skill-item">天线设计</div>
+                            <div class="skill-item">HFSS</div>
+                            <div class="skill-item">通信原理</div>
+                            <div class="skill-item">信号处理</div>
+                            <div class="skill-item">MATLAB</div>
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">C/C++</div>
+                            <div class="skill-item">Verilog</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://fredericklog-1375058270.cos.ap-nanjing.myqcloud.com/typora/dd.jpg" alt="Frederick" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客分类部分 -->
+    <section id="categories" class="blog-categories">
+        <div class="container">
+            <h2>博客分类</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-university"></i>
+                    <h3>NBU 本科笔记</h3>
+                    <p>记录本科阶段学习的通信工程相关课程笔记，包括通信原理、信号与系统、电磁场与电磁波等核心课程。</p>
+                    <a href="NBU-NOTES/" class="category-link">
+                        查看笔记 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>SEU 硕士笔记</h3>
+                    <p>分享硕士阶段的学习和研究内容，重点关注电磁场与微波技术方向的前沿知识和实践经验。</p>
+                    <a href="SEU-NOTES/PRE/研0干些啥/研0干些啥/" class="category-link">
+                        查看笔记 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>技术随笔</h3>
+                    <p>记录学习过程中的思考、感悟和技术心得，包括项目经验、学习方法和行业动态等。</p>
+                    <a href="freewriting/团建/团建小游戏/" class="category-link">
+                        查看随笔 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-code"></i>
+                    <h3>编程学习</h3>
+                    <p>分享编程相关的学习笔记和实践经验，包括Python、MATLAB、C/C++等编程语言的应用。</p>
+                    <a href="Life Learning/Dive into Deep Learning/Dive into Deeplearning/" class="category-link">
+                        查看笔记 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>工具使用</h3>
+                    <p>介绍各种科研和工程工具的使用方法，包括HFSS、MATLAB、Altium Designer等专业软件。</p>
+                    <a href="tools_for_mylog/" class="category-link">
+                        查看工具 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-book"></i>
+                    <h3>读书笔记</h3>
+                    <p>记录阅读专业书籍和文献的心得体会，分享重要的理论观点和技术进展。</p>
+                    <a href="#" class="category-link">
+                        查看笔记 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最近文章部分 -->
+    <section id="posts" class="recent-posts">
+        <div class="container">
+            <h2>最近文章</h2>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span><i class="far fa-calendar"></i> 2025-12-29</span>
+                            <span><i class="far fa-folder"></i> 通信原理</span>
+                        </div>
+                        <h3 class="post-title">通信原理学习笔记：数字调制技术</h3>
+                        <p class="post-excerpt">详细介绍数字调制技术的基本原理、分类和应用，包括ASK、FSK、PSK等调制方式的性能比较。</p>
+                        <a href="#" class="post-link">
+                            阅读全文 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span><i class="far fa-calendar"></i> 2025-12-28</span>
+                            <span><i class="far fa-folder"></i> 电磁场与电磁波</span>
+                        </div>
+                        <h3 class="post-title">电磁场理论：麦克斯韦方程组的物理意义</h3>
+                        <p class="post-excerpt">深入探讨麦克斯韦方程组的物理意义和数学形式，分析其在电磁场理论中的核心地位。</p>
+                        <a href="#" class="post-link">
+                            阅读全文 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span><i class="far fa-calendar"></i> 2025-12-27</span>
+                            <span><i class="far fa-folder"></i> 微波技术</span>
+                        </div>
+                        <h3 class="post-title">微波电路设计：微带线滤波器的设计与实现</h3>
+                        <p class="post-excerpt">介绍微带线滤波器的基本原理、设计方法和实现过程，包括HFSS仿真和实际测试结果。</p>
+                        <a href="#" class="post-link">
+                            阅读全文 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于博客</h3>
+                    <p>这是一个记录通信工程学习和研究的技术博客，分享专业知识、学习心得和项目经验。</p>
+                    <div class="social-links">
+                        <a href="https://github.com/frederickyxg" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#about">关于我</a></li>
+                        <li><a href="#categories">博客分类</a></li>
+                        <li><a href="#posts">最近文章</a></li>
+                        <li><a href="NBU-NOTES/">NBU笔记</a></li>
+                        <li><a href="SEU-NOTES/PRE/">SEU笔记</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>博客分类</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="NBU-NOTES/">通信工程</a></li>
+                        <li><a href="NBU-NOTES/电磁场与电磁波/">电磁场与电磁波</a></li>
+                        <li><a href="SEU-NOTES/PRE/天线入门/">天线设计</a></li>
+                        <li><a href="Life Learning/Python Learning/">Python编程</a></li>
+                        <li><a href="Life Learning/ZYNQ/">硬件设计</a></li>
+                        <li><a href="freewriting/">技术随笔</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系我</h3>
+                    <p><i class="fas fa-envelope"></i> frederick@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 中国 · 无锡</p>
+                    <p><i class="fas fa-graduation-cap"></i> 东南大学</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Frederick's Logs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 滚动到顶部按钮 -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript 功能实现 -->
+    <script>
+        /**
+         * 主题切换功能
+         * 实现明亮/暗黑主题的切换、本地存储和图标更新
+         */
+        const themeToggle = document.querySelector('.theme-toggle'); // 主题切换按钮
+        const html = document.documentElement; // HTML根元素
+        
+        // 从本地存储加载主题偏好，如果没有则使用系统偏好
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // 如果系统偏好暗黑主题，则使用暗黑主题
+            html.setAttribute('data-theme', 'dark');
+        }
+        
+        /**
+         * 更新主题切换按钮图标
+         * 根据当前主题显示太阳或月亮图标
+         */
+        function updateThemeIcon() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        
+        updateThemeIcon(); // 初始化主题图标
+        
+        // 主题切换事件监听
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme); // 更新主题属性
+            localStorage.setItem('theme', newTheme); // 保存主题偏好到本地存储
+            updateThemeIcon(); // 更新图标
+        });
+        
+        /**
+         * 移动端菜单功能
+         * 实现移动端菜单的展开和收起
+         */
+        const menuToggle = document.querySelector('.menu-toggle'); // 移动端菜单按钮
+        const navLinks = document.querySelector('.nav-links'); // 导航链接列表
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // 切换导航链接的显示状态
+            const icon = menuToggle.querySelector('i'); // 菜单按钮图标
+            // 切换图标样式
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        /**
+         * 滚动到顶部功能
+         * 实现滚动到顶部按钮的显示/隐藏和点击事件
+         */
+        const scrollTopBtn = document.querySelector('.scroll-top'); // 滚动到顶部按钮
+        
+        // 监听滚动事件，控制按钮显示/隐藏
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // 点击滚动到顶部
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 平滑滚动
+            });
+        });
+        
+        /**
+         * 平滑滚动功能
+         * 实现页面内锚点的平滑滚动
+         */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止默认跳转行为
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    // 如果是回到顶部链接
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // 如果是其他锚点链接
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                
+                // 关闭移动端菜单（如果打开）
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        /**
+         * 导航链接激活状态
+         * 根据滚动位置自动更新导航链接的激活状态
+         */
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section'); // 获取所有section元素
+            const scrollPosition = window.pageYOffset + 100; // 当前滚动位置，加100px偏移
+            
+            // 遍历所有section，判断当前滚动位置在哪一个section内
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop; // section顶部位置
+                const sectionHeight = section.clientHeight; // section高度
+                const sectionId = section.getAttribute('id'); // section的id
+                
+                // 如果当前滚动位置在该section内
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    // 移除所有导航链接的active类
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        // 为对应section的导航链接添加active类
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        /**
+         * 图片懒加载功能
+         * 使用Intersection Observer API实现图片的延迟加载
+         */
+        if ('IntersectionObserver' in window) {
+            // 创建Intersection Observer实例
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 当图片进入视口时
+                        const image = entry.target;
+                        image.src = image.dataset.src; // 将data-src属性的值赋给src属性
+                        imageObserver.unobserve(image); // 停止观察该图片
+                    }
+                });
+            });
+            
+            // 观察所有带有data-src属性的图片
+            document.querySelectorAll('img[data-src]').forEach(image => {
+                imageObserver.observe(image);
+            });
+        }
+        
+        /**
+         * 添加页面加载动画
+         * 实现页面加载时的淡入效果
+         */
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0'; // 设置初始透明度为0
+            document.body.style.transition = 'opacity 0.5s ease'; // 添加过渡效果
+            // 延迟100ms后将透明度设置为1，实现淡入效果
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

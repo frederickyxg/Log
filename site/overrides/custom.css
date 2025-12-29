@@ -1,0 +1,97 @@
+/* 自定义标签页样式 - 科技风格 */
+
+/* 标签页容器 */
+.md-tabs {
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(10px);
+}
+
+/* 标签页列表 */
+.md-tabs__list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 标签页项 */
+.md-tabs__item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* 标签页链接 */
+.md-tabs__link {
+  display: inline-block;
+  padding: 1rem 0;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 标签页链接悬停效果 */
+.md-tabs__link:hover {
+  color: var(--accent-primary);
+}
+
+/* 标签页链接激活状态 */
+.md-tabs__item--active .md-tabs__link {
+  color: var(--accent-primary);
+}
+
+/* 标签页激活状态下划线 */
+.md-tabs__item--active .md-tabs__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+/* 标签页悬停状态下划线 */
+.md-tabs__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+/* 标签页链接悬停时显示下划线 */
+.md-tabs__link:hover::after {
+  width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .md-tabs__list {
+    gap: 1rem;
+  }
+  
+  .md-tabs__link {
+    font-size: 0.9rem;
+    padding: 0.8rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-tabs__list {
+    gap: 0.5rem;
+  }
+  
+  .md-tabs__link {
+    font-size: 0.8rem;
+    padding: 0.6rem 0;
+  }
+}
